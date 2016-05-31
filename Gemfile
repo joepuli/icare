@@ -23,9 +23,8 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 group :development, :test do
   gem 'byebug'
   gem 'rails-controller-testing'
-  gem 'rspec-rails', '>= 3.5.0.beta1'
+  gem 'mongoid-rspec', '3.0.0'
   gem 'factory_girl_rails'
-  gem 'shoulda-matchers'
   gem 'launchy'
   gem 'faker'
 end

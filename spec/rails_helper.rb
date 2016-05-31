@@ -4,7 +4,6 @@ require File.expand_path('../../config/environment', __FILE__)
 # Prevent database truncation if the environment is production
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'spec_helper'
-require 'rspec/rails'
 require 'devise'
 require 'capybara/rspec'
 require 'database_cleaner'
@@ -28,6 +27,7 @@ Capybara.javascript_driver = :webkit
 
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
+  config.include Mongoid::Matchers, type: :model
   # RSpec Rails can automatically mix in different behaviours to your tests
   # based on their file location, for example enabling you to call `get` and
   # `post` in specs under `spec/controllers`.
@@ -41,28 +41,28 @@ RSpec.configure do |config|
   #
   # The different available types are documented in the features, such as in
   # https://relishapp.com/rspec/rspec-rails/docs
-  config.infer_spec_type_from_file_location!
+  # config.infer_spec_type_from_file_location!
 
   # Filter lines from Rails gems in backtraces.
-  config.filter_rails_from_backtrace!
+  # config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
-  config.before(:suite) do
-    if config.use_transactional_fixtures?
-      raise(<<-MSG)
-        Delete line `config.use_transactional_fixtures = true`
-        from rails_helper.rb
-        (or set it to false) to prevent uncommitted transactions being used in
-        JavaScript-dependent specs.
-
-        During testing, the app-under-test that the browser driver connects to
-        uses a different database connection to the database connection used by
-        the spec. The app's database connection would not be able to access
-        uncommitted transaction data setup over the spec's database connection.
-      MSG
-    end
-    DatabaseCleaner.clean_with(:truncation)
-  end
+  # config.before(:suite) do
+  #   if config.use_transactional_fixtures?
+  #     raise(<<-MSG)
+  #       Delete line `config.use_transactional_fixtures = true`
+  #       from rails_helper.rb
+  #       (or set it to false) to prevent uncommitted transactions being used in
+  #       JavaScript-dependent specs.
+  #
+  #       During testing, the app-under-test that the browser driver connects to
+  #       uses a different database connection to the database connection used by
+  #       the spec. The app's database connection would not be able to access
+  #       uncommitted transaction data setup over the spec's database connection.
+  #     MSG
+  #   end
+  #   DatabaseCleaner.clean_with(:truncation)
+  # end
 
   config.before(:each) do
     DatabaseCleaner.strategy = :truncation
@@ -75,11 +75,4 @@ RSpec.configure do |config|
 
   config.before(:each) { DatabaseCleaner.start }
   config.append_after(:each) { DatabaseCleaner.clean }
-end
-
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
-    with.library :rails
-  end
 end
