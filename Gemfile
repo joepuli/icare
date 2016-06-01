@@ -14,6 +14,8 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise', '~> 4.0.0.rc1'
 gem 'bootstrap', '~> 4.0.0.alpha3'
+gem 'octicons-rails'
+gem 'rails-assets-tether', '>= 1.1.0'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -22,7 +24,7 @@ gem 'bootstrap', '~> 4.0.0.alpha3'
 
 group :development, :test do
   gem 'byebug'
-  gem 'rails-controller-testing'
+  gem 'rspec-rails', '~> 3.4.0'
   gem 'mongoid-rspec', '3.0.0'
   gem 'factory_girl_rails'
   gem 'launchy'

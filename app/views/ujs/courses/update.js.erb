@@ -1,0 +1,2 @@
+$('[data-modal]').modal('hide');
+$("#course_<%= @course.id %>").replaceWith('<%= j render partial: "ujs/courses/course", locals: { course: @course } %>')

@@ -13,6 +13,10 @@ class Profile
   field :last_name, type: String
   field :born_on, type: Date
 
+  # nested attributes
+  accepts_nested_attributes_for :trainings, :courses, :preferences,
+                                reject_if: proc { |obj| obj[:name].blank? }
+
   # instance methods
   def full_name
     [first_name, middle_name, last_name].reject(&:blank?).join(' ')

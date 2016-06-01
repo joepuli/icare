@@ -1,0 +1,7 @@
+= content_tag_for :div, training do
+  = link_to [:edit, :ujs, training, profile_id: @profile.id], remote: true do
+    span.octicon.octicon-pencil
+  = link_to [:ujs, training, profile_id: @profile.id], method: :delete, remote: true do
+    span.octicon.octicon-trashcan
+  | 
+  = training.name

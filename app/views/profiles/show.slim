@@ -1,0 +1,26 @@
+.row
+  .col-sm-12
+    .col-sm-4
+      h3= @profile.full_name
+      | 
+      = link_to 'edit', [:edit, @profile]
+      hr
+      = "Born on: #{@profile.born_on.strftime('%m/%d/%y')}"
+    .col-sm-8
+      .col-sm-12
+        h4 Trainings
+        - @profile.trainings.each do |training|
+          = render partial: 'ujs/trainings/training', locals: { training: training }
+        hr
+      .col-sm-12
+        h4 Courses
+        - @profile.courses.each do |course|
+          = render partial: 'ujs/courses/course', locals: { course: course }
+        hr
+      .col-sm-12
+        h4 Preferences
+        - @profile.preferences.each do |preference|
+          = render partial: 'ujs/preferences/preference', locals: { preference: preference }
+
+hr
+  
