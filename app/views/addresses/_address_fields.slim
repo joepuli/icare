@@ -1,0 +1,18 @@
+.form-group
+  = f.label :address_1, class: 'col-sm-2 form-control-label sr-only'
+  = f.text_field :address_1, placeholder: 'Street', class: 'form-control'
+.form-group
+  = f.label :address_2, class: 'col-sm-2 form-control-label sr-only'
+  = f.text_field :address_2, class: 'form-control', 
+                             placeholder: 'i.e. Suite #'
+.form-group
+  = f.label :city, class: 'col-sm-2 form-control-label sr-only'
+  = f.text_field :city, class: 'form-control', placeholder: 'City'
+.form-group
+  = f.label :state, class: 'col-sm-2 form-control-label sr-only'
+  = f.select :state, options_for_select(Address::US_STATES, @profile.address.state), 
+                      class: 'c-select form-control',
+                      prompt: 'Select State'
+.form-group
+  = f.label :zip, class: 'col-sm-2 form-control-label sr-only'
+  = f.text_field :zip, class: 'form-control'

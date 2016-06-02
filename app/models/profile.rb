@@ -6,6 +6,7 @@ class Profile
   embeds_many :trainings
   embeds_many :courses
   embeds_many :preferences
+  has_one :address, as: :addressable
 
   # fields
   field :first_name, type: String
@@ -16,7 +17,12 @@ class Profile
   # nested attributes
   accepts_nested_attributes_for :trainings, :courses, :preferences,
                                 reject_if: proc { |obj| obj[:name].blank? }
+  accepts_nested_attributes_for :address,
+                                reject_if: proc { |obj| obj[:zip].blank? }
 
+  # delegate
+  delegate :full_address, to: :address, allow_nil: true
+  
   # instance methods
   def full_name
     [first_name, middle_name, last_name].reject(&:blank?).join(' ')

@@ -1,0 +1,7 @@
+Gmaps.map.removeMarkers(Gmaps.markers);
+Gmaps.markers = [];
+$('[data-map]').html('<%= j render partial: "map", locals: { location: @location, hash: @hash } %>')
+Gmaps.markers = Gmaps.map.addMarkers($('[data-hash]').data('hash'),
+                  { animation: google.maps.Animation.DROP });
+Gmaps.map.bounds.extendWith(Gmaps.markers);
+Gmaps.map.fitMapToBounds();

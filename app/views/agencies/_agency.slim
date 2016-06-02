@@ -1,0 +1,38 @@
+.col-sm-12
+  dl.dl-horizontal
+    dt.col-sm-3 Number
+    dd.col-sm-9= agency.facility_number
+  dl.dl-horizontal
+    dt.col-sm-3 Licensee
+    dd.col-sm-9= agency.licensee
+  dl.dl-horizontal
+    dt.col-sm-3 License issued on
+    dd.col-sm-9= agency.license_first_date.to_date.strftime('%m/%d/%Y')
+  dl.dl-horizontal
+    dt.col-sm-3 Capacity
+    dd.col-sm-9= agency.facility_capacity
+  dl.dl-horizontal
+    dt.col-sm-3 Type
+    dd.col-sm-9= agency.facility_type
+  dl.dl-horizontal
+    dt.col-sm-3 Status
+    dd.col-sm-9= agency.facility_status
+  dl.dl-horizontal
+    dt.col-sm-3 County
+    dd.col-sm-9= agency.county_name
+    
+  hr
+  dl.dl-horizontal
+    dt.col-sm-3 Admin
+    dd.col-sm-9= agency.facility_administrator
+  
+  address
+    strong= agency.facility_name
+    br
+    = agency.facility_address
+    br
+    = "#{agency.facility_city}, #{agency.facility_state} #{agency.facility_zip}"
+    br
+    abbr title='Phone' P:
+    |  
+    span= agency.facility_telephone_number

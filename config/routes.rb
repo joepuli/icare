@@ -3,6 +3,7 @@ Rails.application.routes.draw do
                                     sessions: 'users/sessions'
                                   }
 
+  resources :agencies, only: [:index]
   resources :profiles
   namespace :ujs do
     resources :trainings, :courses, :preferences,

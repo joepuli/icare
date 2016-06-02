@@ -4,6 +4,8 @@
 #= require tether
 #= require bootstrap-sprockets
 #= require turbolinks
+#= require underscore
+#= require gmaps/google
 #= require main
 #= require_tree .
 

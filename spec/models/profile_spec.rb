@@ -6,11 +6,13 @@ RSpec.describe Profile, type: :model do
   it { is_expected.to embed_many(:trainings) }
   it { is_expected.to embed_many(:courses) }
   it { is_expected.to embed_many(:preferences) }
+  it { is_expected.to have_one(:address) }
 
   # nested attributes
   it { is_expected.to accept_nested_attributes_for(:trainings) }
   it { is_expected.to accept_nested_attributes_for(:courses) }
   it { is_expected.to accept_nested_attributes_for(:preferences) }
+  it { is_expected.to accept_nested_attributes_for(:address) }
 
   # instance methods
   let(:profile) { build(:profile) }

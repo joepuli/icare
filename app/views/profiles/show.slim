@@ -6,6 +6,8 @@
       = link_to 'edit', [:edit, @profile]
       hr
       = "Born on: #{@profile.born_on.strftime('%m/%d/%y')}"
+      hr
+      = @profile.full_address
     .col-sm-8
       .col-sm-12
         h4 Trainings

@@ -5,6 +5,7 @@ class ProfilesController < ApplicationController
     @profile.trainings.build
     @profile.courses.build
     @profile.preferences.build
+    @profile.build_address
   end
 
   def create
@@ -23,6 +24,7 @@ class ProfilesController < ApplicationController
     @profile.trainings.build
     @profile.courses.build
     @profile.preferences.build
+    @profile.build_address if @profile.address.blank?
   end
 
   def update
@@ -38,9 +40,12 @@ class ProfilesController < ApplicationController
   def profile_attributes
     params.require(:profile).permit(:first_name, :middle_name,
                                     :last_name, :born_on,
-                                    trainings_attributes: [:name],
-                                    courses_attributes: [:name],
-                                    preferences_attributes: [:name]
+                                    trainings_attributes: [:id, :name],
+                                    courses_attributes: [:id, :name],
+                                    preferences_attributes: [:id, :name],
+                                    address_attributes: [:address_1, :address_2,
+                                                         :city, :state, :zip,
+                                                         :id]
                                   )
   end
 

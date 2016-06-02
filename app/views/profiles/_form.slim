@@ -19,6 +19,15 @@
         .col-sm-10
           = f.date_field :born_on, class: 'form-control'
           
+      hr  
+          
+      #address
+        strong Address
+        = f.fields_for :address do |ab|
+          = render partial: 'addresses/address_fields', locals: { f: ab }
+          
+      hr  
+          
       #trainings
         strong Trainings
         = f.fields_for :trainings do |tb|
