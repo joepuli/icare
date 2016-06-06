@@ -1,30 +1,37 @@
 class Profile
   include Mongoid::Document
+  include Mongoid::Timestamps
 
   # associations
   belongs_to :user
-  embeds_many :trainings
-  embeds_many :courses
-  embeds_many :preferences
+  embeds_one :license, cascade_callbacks: true
+  embeds_one :home, cascade_callbacks: true
+  embeds_one :agency, cascade_callbacks: true
+  embeds_many :parents, cascade_callbacks: true
+  embeds_many :children, cascade_callbacks: true
   has_one :address, as: :addressable
+  has_many :preferences
 
   # fields
-  field :first_name, type: String
-  field :middle_name, type: String
-  field :last_name, type: String
-  field :born_on, type: Date
+  field :p1, as: :primary_phone, type: String
+  field :p2, as: :secondary_phone, type: String
+  field :fi, as: :family_introduction, type: String
+  field :li, as: :lifestyle_and_interests, type: String
+  field :ec, as: :experience_with_children, type: String
+  field :sn, as: :support_network, type: String
+  field :ar, as: :available_resources, type: String
 
   # nested attributes
-  accepts_nested_attributes_for :trainings, :courses, :preferences,
-                                reject_if: proc { |obj| obj[:name].blank? }
-  accepts_nested_attributes_for :address,
-                                reject_if: proc { |obj| obj[:zip].blank? }
+  accepts_nested_attributes_for :license, :parents, :children, :home
 
-  # delegate
-  delegate :full_address, to: :address, allow_nil: true
-  
-  # instance methods
-  def full_name
-    [first_name, middle_name, last_name].reject(&:blank?).join(' ')
-  end
+  # validations
+  validates :primary_phone, :family_introduction,
+            :lifestyle_and_interests, :experience_with_children,
+            presence: true
+  validates :family_introduction, :lifestyle_and_interests,
+            length: { minimum: 250, maximum: 3000 }
+  validates :experience_with_children,
+            length: { maximum: 3000 }
+  validates :support_network, :available_resources,
+            length: { maximum: 3000 }, allow_nil: true
 end

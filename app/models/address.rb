@@ -6,6 +6,13 @@ class Address
   # attrs
   attr_accessor :full_address
 
+  # constants
+  TYPES = [
+    'United States (including territories)',
+    'Military or Diplomatic (APO, DPO, FPO)',
+    'International'
+  ].freeze
+
   # associations
   belongs_to :addressable, polymorphic: true
 
@@ -13,18 +20,26 @@ class Address
   geocoded_by :full_address
 
   # fields
-  field :coordinates, type: Array
-  field :address_1, type: String
-  field :address_2, type: String
+  field :a1, as: :home_address, type: String
+  field :a2, as: :address_2, type: String
   field :city, type: String
-  field :state, type: String
-  field :zip, type: String
+  field :s, as: :state, type: String
+  field :z, as: :zip, type: String
+  field :c, as: :country, type: String
+  field :t, as: :type, type: String
+  field :co, as: :coordinates, type: Array
+
+  # validations
+  validates :home_address, :city, :state, :zip, :type, presence: true
+  validates :type, inclusion: { in: TYPES }
 
   # callbacks
   after_validation :geocode, if: ->(obj) { obj.full_address.present? }
 
   # instance methods
   def full_address
-    [address_1, address_2, city, state, zip].reject(&:blank?).join(', ')
+    [home_address, address_2, city,
+     state, zip, country
+    ].reject(&:blank?).join(', ')
   end
 end
