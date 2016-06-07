@@ -6,11 +6,11 @@ class Profile
   belongs_to :user
   embeds_one :license, cascade_callbacks: true
   embeds_one :home, cascade_callbacks: true
-  has_one :agency
   embeds_many :parents, cascade_callbacks: true
   embeds_many :children, cascade_callbacks: true
-  has_one :address, as: :addressable
+  has_one :agency
   has_one :preference
+  has_one :address, as: :addressable
 
   # fields
   field :p1, as: :primary_phone, type: String
@@ -34,10 +34,9 @@ class Profile
             length: { maximum: 3000 }
   validates :support_network, :available_resources,
             length: { maximum: 3000 }, allow_nil: true
-  validates :parents, associated: true
-  validates :children, associated: true
+  validates :parents, :children, :home, :license, associated: true
 
   # nested attributes
-  accepts_nested_attributes_for :parents, allow_destroy: true
-  accepts_nested_attributes_for :children, allow_destroy: true
+  accepts_nested_attributes_for :parents, :children, :home, :license,
+                                allow_destroy: true
 end

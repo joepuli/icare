@@ -2,7 +2,7 @@
   = f.input :first_name
   = f.input :middle_name
   = f.input :last_name
-  = f.input :date_of_birth, as: :date, html5: true, order: [:month, :year]
+  = f.input :date_of_birth, as: :date, html5: true, order: [:month, :year], wrapper: :horizontal_form
   = f.input :gender, collection: Parent::GENDER
   = f.input :religion, collection: Parent::RELIGION
   = f.input :primary_language, collection: Parent::LANGUAGE

@@ -5,15 +5,18 @@ head
 
 .col-sm-9
   .col-sm-12
-    = form_tag [@profile, :agencies], method: :get, id: 'agencies', remote: true  do
-      .form-group.row
-        = label_tag :radius, 'Search Agencies (in miles)',
-                             class: 'col-sm-3 form-control-label'
-        .col-sm-9
-          = select_tag :radius, options_for_select(%w(5 10 25 50 100), 
-                                                   params[:radius]),
-                                    prompt: 'select distance in miles',
-                                    class: 'form-control c-select'
+    = form_tag [@profile, :agencies], method: :get, id: 'agencies', 
+        class: 'form-inline', remote: true  do
+      .form-group
+        = label_tag :zip, 'Radius', class: 'sr-only'
+        = text_field_tag :zip, params.fetch(:zip, current_user.try(:profile).try(:home).try(:address).try(:zip)), placeholder: 'zip',
+          class: 'form-control'
+      .form-group
+        = label_tag :radius, 'Radius', class: 'sr-only'
+        = select_tag :radius, options_for_select(%w(5 10 25 50 100), 
+                                                 params[:radius]),
+                                  prompt: 'select distance in miles',
+                                  class: 'form-control c-select'
   .col-sm-12
     p data-map='' 
       = render partial: 'map', locals: { location: @location, hash: @hash }
@@ -22,4 +25,5 @@ head
 coffee:
   $('form#agencies').on 'change', ->
     $(@).submit()
+      
   @App.Map.prototype.constructor()

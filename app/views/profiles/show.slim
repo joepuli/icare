@@ -1,45 +1,51 @@
 .row
-  .col-sm-9
+  .col-sm-8
     .pull-sm-right
       = link_to 'edit', [:edit, @profile]
   
-  .col-sm-9
-    .col-sm-3
+  .col-sm-8
+    .col-sm-4
       strong Primary phone
-    .col-sm-9= number_to_phone @profile.primary_phone 
+    .col-sm-8= number_to_phone @profile.primary_phone 
     
-    br
+    .clearfix
+    hr
     
-    .col-sm-3
+    .col-sm-4
       strong Secondary phone
-    .col-sm-9= number_to_phone @profile.secondary_phone
+    .col-sm-8= number_to_phone @profile.secondary_phone
     
-    br
+    .clearfix
+    hr
 
-    .col-sm-3
+    .col-sm-4
       strong Family introduction
-    .col-sm-9= @profile.family_introduction
+    .col-sm-8= @profile.family_introduction
     
-    br
+    .clearfix
+    hr
     
-    .col-sm-3
+    .col-sm-4
       strong Lifestyle and interets
-    .col-sm-9= @profile.lifestyle_and_interests
+    .col-sm-8= @profile.lifestyle_and_interests
     
-    br
+    .clearfix
+    hr
     
-    .col-sm-3
+    .col-sm-4
       strong Experience with children
-    .col-sm-9= @profile.experience_with_children
+    .col-sm-8= @profile.experience_with_children
     
-    br
+    .clearfix
+    hr
     
-    .col-sm-3
+    .col-sm-4
       strong Support network
-    .col-sm-9= @profile.support_network
+    .col-sm-8= @profile.support_network
     
-    br
+    .clearfix
+    hr
     
-    .col-sm-3
+    .col-sm-4
       strong Available resources
-    .col-sm-9= @profile.available_resources
+    .col-sm-8= @profile.available_resources

@@ -1,12 +1,12 @@
 class HomesController < ApplicationController
   before_action :find_profile, :find_home
+  before_action :lookup_home, only: [:edit, :update]
 
   def index
     @parents = @profile.parents
   end
 
   def edit
-    @home = @profile.home? ? @profile.home : @profile.build_home
   end
 
   def update
@@ -20,7 +20,8 @@ class HomesController < ApplicationController
   private
 
   def profile_attributes
-    params.require(:profile).permit(home_attributes: [:id, :can_family_pay_for_preplacement_visits,
+    params.require(:profile).permit(home_attributes: [:id,
+                                    :can_family_pay_for_preplacement_visits,
                                     :address_type,
                                     :can_family_travel_for_preplacement_visits,
                                     :is_your_home_wheelchair_accessible,
@@ -36,5 +37,15 @@ class HomesController < ApplicationController
 
   def find_home
     @home = @profile.home
+  end
+
+  def lookup_home
+    if @profile.home?
+      @home = find_home
+    else
+      @home = @profile.build_home
+      @home.build_address
+    end
+
   end
 end

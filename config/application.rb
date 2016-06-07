@@ -17,7 +17,6 @@ Bundler.require(*Rails.groups)
 
 module ICare
   class Application < Rails::Application
-    ActionView::Base.default_form_builder = "Bootstrap4FormBuilder::FormBuilder::BootstrapBuilder"
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.

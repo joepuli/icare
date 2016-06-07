@@ -1,6 +1,6 @@
 .row
   .col-sm-9
-    = simple_form_for [ @profile, @agency ] do |f|
+    = simple_form_for [ @profile, @agency ], wrapper: :horizontal_form do |f|
       = f.input :agency_name
       = f.input :agency_phone
       = f.input :contact_person

@@ -1,6 +1,6 @@
 = f.input :can_family_travel_for_preplacement_visits, collection: Home::OPTIONS
 = f.input :can_family_pay_for_preplacement_visits, collection: Home::OPTIONS
-= f.input :is_your_home_wheelchair_accessible, collection: ['YES', 'Not currently, but willing to modify', 'No']
+= f.input :is_your_home_wheelchair_accessible, collection: ['Yes', 'Not currently, but willing to modify', 'No']
 = f.input :pets_in_the_home, collection: Home::PETS
 = f.input :address_type, collection: Home::ADDRESS_TYPES 
 = f.simple_fields_for :address, @address do |builder|

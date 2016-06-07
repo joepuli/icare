@@ -6,7 +6,7 @@ class Home
 
   # associations
   embedded_in :profile
-  embeds_one :address
+  embeds_one :address, as: :addressable
 
   # fields
   field :t, as: :can_family_travel_for_preplacement_visits, type: String
@@ -22,6 +22,7 @@ class Home
             inclusion: { in: OPTIONS }, allow_blank: true
   validates :pets_in_the_home, inclusion: { in: PETS }, allow_blank: true
   validates :address_type, inclusion: { in: ADDRESS_TYPES }
+  validates :address, associated: true
 
   # accepts nested attributes
   accepts_nested_attributes_for :address,

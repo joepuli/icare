@@ -19,8 +19,8 @@ class @App.Map
 
   center: ->
     user_location = $('[data-user-location]').data('user-location')
-    lat: user_location[1]
     lng: user_location[0]
+    lat: user_location[1]
     infowindow: 'Home'
     picture:
       url: $('[data-home-icon]').data('home-icon')

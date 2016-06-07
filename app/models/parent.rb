@@ -24,11 +24,11 @@ class Parent
   # validations
   validates :first_name, :last_name, :date_of_birth, :gender,
             :active_or_reserve_duty_military, :primary_language,
-            :relationship_status, presence: true
+            :relationship_status, :religion, presence: true
 
   validates :gender, inclusion: { in: GENDER }
   validates :primary_language, inclusion: { in: LANGUAGE }
-  validates :religion, inclusion: { in: RELIGION }, allow_nil: true
+  validates :religion, inclusion: { in: RELIGION }
   validates :relationship_status, inclusion: { in: RELATIONSHIP_STATUS }
 
   # nested attribtes

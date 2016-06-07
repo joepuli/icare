@@ -7,5 +7,7 @@
       = f.input :oldest_age_acceptable, collection: Preference::ACCEPTABLE_RANGE
       = f.input :minimum_number_of_children, collection: Preference::QUANTITY
       = f.input :maximum_number_of_children, collection: Preference::QUANTITY
-      = f.input :consider_LGBTQ_youth, as: :radio_buttons
+      = f.input :consider_LGBTQ_youth, as: :radio_buttons, 
+          label: 'Consider LGBTQ youth', 
+          wrapper: :horizontal_radio_and_checkboxes
       = f.submit class: 'btn btn-primary pull-xs-right'

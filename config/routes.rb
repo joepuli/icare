@@ -3,8 +3,9 @@ Rails.application.routes.draw do
                                     sessions: 'users/sessions'
                                   }
 
+  resources :agencies, only: :index
   resources :profiles do
-    resources :agencies
+    resources :agencies, except: :index
     resources :homes
     resources :parents
     resources :children

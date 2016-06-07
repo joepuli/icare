@@ -9,7 +9,7 @@ class PreferencesController < ApplicationController
   def create
     @preference = @profile.build_preference(preference_attributes)
     if @preference.save
-      redirect_to [ @profile, @preference ]
+      redirect_to @preference
     else
       render :new
     end

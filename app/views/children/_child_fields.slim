@@ -1,5 +1,6 @@
 .col-sm-12.partial
-  = f.input :birth_month_and_year, as: :date, html5: true, order: [:month, :year]
+  = f.input :birth_month_and_year, as: :date, html5: true, 
+    order: [:month, :year], wrapper: :horizontal_form
   = f.input :gender, collection: Parent::GENDER
   = f.input :child_became_part_of_family_by, collection: Child::MEMBERSHIP
   = f.input :any_challenges_or_disabilities?

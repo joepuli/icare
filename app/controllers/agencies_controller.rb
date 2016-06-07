@@ -1,12 +1,11 @@
 class AgenciesController < ApplicationController
-  before_action :find_profile
+  before_action :find_profile, except: :index
   before_action :find_agency, only: [:edit, :update, :show]
   respond_to :html, :js
 
   def index
-    address = @profile.home.address
-    @agencies = Agency.search(address: address, radius: params.fetch(:radius, 10))
-    @location = @profile.home.address.coordinates
+    @agencies = Agency.search(user: current_user, params: params)
+    @location = Agency.location_coordinates(user: current_user, params: params)
     @hash = Gmaps4rails.build_markers(@agencies) do |agency, marker|
       marker.lat agency.location.latitude
       marker.lng agency.location.longitude
@@ -24,7 +23,7 @@ class AgenciesController < ApplicationController
   def create
     @agency = @profile.build_agency(agency_attributes)
     if @agency.save
-      redirect_to [ @profile, @agency ]
+      redirect_to [@profile, @agency]
     else
       @agency.build_address
       render :new
