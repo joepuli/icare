@@ -1,0 +1,6 @@
+.col-xs-12
+  - content_for :form_errors do
+    ul.list-group
+      - object.errors.full_messages.each do |message|
+        li.list-group-item.list-group-item-danger= message
+hr

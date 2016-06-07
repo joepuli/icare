@@ -2,17 +2,17 @@
 #= require jquery-ui
 #= require jquery_ujs
 #= require tether
-#= require bootstrap-sprockets
+#= require bootstrap
 #= require turbolinks
 #= require underscore
 #= require gmaps/google
 #= require main
-#= require_tree .
+#= require map
 
 class @App.DynamicFields
-  constructor: ->
-    @addFields()
-    @removeFields()
+  # constructor: ->
+  #   addFields()
+  #   removeFields()
 
   addFields: ->
     $('form').on 'click', '.add_fields', (event) ->
@@ -24,5 +24,5 @@ class @App.DynamicFields
   removeFields: ->
     $('form').on 'click', '.remove_fields', (event) ->
       $(@).prev('input[type=hidden]').val('1')
-      $(@).closest('.partial').remove()
+      $(@).closest('.partial').hide()
       event.preventDefault()

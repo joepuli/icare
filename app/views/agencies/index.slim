@@ -3,22 +3,23 @@ head
   script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"
   script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js'
 
-.col-sm-12
-  = form_tag agencies_path, method: :get, id: 'agencies', remote: true  do
-    .form-group.row
-      = label_tag :radius, 'Search Agencies (in miles)',
-                           class: 'col-sm-3 form-control-label'
-      .col-sm-9
-        = select_tag :radius, options_for_select(%w(5 10 25 50 100), 
-                                                 params[:radius]),
-                                  prompt: 'select distance in miles',
-                                  class: 'form-control c-select'
-.col-sm-12
-  p data-map='' 
-    = render partial: 'map', locals: { location: @location, hash: @hash }
-  #map
+.col-sm-9
+  .col-sm-12
+    = form_tag [@profile, :agencies], method: :get, id: 'agencies', remote: true  do
+      .form-group.row
+        = label_tag :radius, 'Search Agencies (in miles)',
+                             class: 'col-sm-3 form-control-label'
+        .col-sm-9
+          = select_tag :radius, options_for_select(%w(5 10 25 50 100), 
+                                                   params[:radius]),
+                                    prompt: 'select distance in miles',
+                                    class: 'form-control c-select'
+  .col-sm-12
+    p data-map='' 
+      = render partial: 'map', locals: { location: @location, hash: @hash }
+    #map
 
 coffee:
   $('form#agencies').on 'change', ->
     $(@).submit()
-  new @App.Map()
+  @App.Map.prototype.constructor()

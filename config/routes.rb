@@ -3,8 +3,12 @@ Rails.application.routes.draw do
                                     sessions: 'users/sessions'
                                   }
 
-  resources :agencies, only: [:index]
-  resources :profiles
+  resources :profiles do
+    resources :agencies
+    resources :homes
+    resources :parents
+    resources :children
+  end
   namespace :ujs do
     resources :trainings, :courses, :preferences,
               only: [:edit, :update, :destroy]

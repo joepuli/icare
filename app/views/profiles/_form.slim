@@ -1,52 +1,11 @@
 .row
-  .col-sm-8.col-sm-offset-2
-    = form_for @profile do |f|
-      .form-group.row
-        = f.label :first_name, class: 'col-sm-2 form-control-label'
-        .col-sm-10
-          = f.text_field :first_name, class: 'form-control',
-                                autofocus: true
-      .form-group.row
-        = f.label :middle_name, class: 'col-sm-2 form-control-label'
-        .col-sm-10
-          = f.text_field :middle_name, class: 'form-control'
-      .form-group.row
-        = f.label :last_name, class: 'col-sm-2 form-control-label'
-        .col-sm-10
-          = f.text_field :last_name, class: 'form-control'
-      .form-group.row
-        = f.label :born_on, class: 'col-sm-2 form-control-label'
-        .col-sm-10
-          = f.date_field :born_on, class: 'form-control'
-          
-      hr  
-          
-      #address
-        strong Address
-        = f.fields_for :address do |ab|
-          = render partial: 'addresses/address_fields', locals: { f: ab }
-          
-      hr  
-          
-      #trainings
-        strong Trainings
-        = f.fields_for :trainings do |tb|
-          = render 'embedded_fields', f: tb
-          = link_to_add_fields '+', f, :trainings
-        hr
-      #courses
-        strong Courses
-        = f.fields_for :courses do |cb|
-          = render 'embedded_fields', f: cb
-          = link_to_add_fields '+', f, :courses
-        hr
-      #preferences
-        strong Preferences
-        = f.fields_for :preferences do |pb|
-          = render 'embedded_fields', f: pb
-          = link_to_add_fields '+', f, :preferences
-        
+  .col-sm-9
+    = simple_form_for @profile do |f|
+      = f.input :primary_phone, as: :tel
+      = f.input :secondary_phone, as: :tel
+      = f.input :family_introduction, as: :text, input_html: { rows: 5 }
+      = f.input :lifestyle_and_interests, as: :text, input_html: { rows: 5 }
+      = f.input :experience_with_children, as: :text, input_html: { rows: 5 }
+      = f.input :support_network, as: :text, input_html: { rows: 5 }
+      = f.input :available_resources, as: :text, input_html: { rows: 5 }
       = f.submit class: 'btn btn-primary pull-xs-right'
-
-coffee:
-  new @App.DynamicFields()

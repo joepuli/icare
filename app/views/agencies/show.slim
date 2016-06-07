@@ -1,0 +1,48 @@
+.row
+  .col-sm-9
+    .pull-sm-right
+      = link_to 'edit', [:edit, @profile, @agency]
+  
+  .col-sm-9
+    .col-sm-3
+      strong Agency name
+    .col-sm-9= @agency.agency_name
+    
+    br
+    
+    .col-sm-3
+      strong Agency phone
+    .col-sm-9= number_to_phone @agency.agency_phone
+    
+    br
+    
+    .col-sm-3
+      strong Agency fax
+    .col-sm-9= number_to_phone @agency.agency_fax
+    
+    br
+
+    .col-sm-3
+      strong Contact person
+    .col-sm-9= @agency.contact_person
+    
+    br
+    
+    .col-sm-3
+      strong Contact person phone
+    .col-sm-9= number_to_phone @agency.contact_person_phone
+    
+    br
+    
+    .col-sm-3
+      strong Contact person email
+    .col-sm-9= @agency.contact_person_email
+    
+    br
+    
+    .col-sm-3
+      strong Agency Address
+    .col-sm-9= @agency.address.try(:full_address)
+    
+    br
+    

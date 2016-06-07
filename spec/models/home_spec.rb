@@ -33,6 +33,7 @@ RSpec.describe Home, type: :model do
     is_expected.to have_field(:pet)
       .with_alias(:pets_in_the_home)
   end
+  it { is_expected.to have_field(:at).with_alias(:address_type) }
 
   # validation
   it do
@@ -52,4 +53,5 @@ RSpec.describe Home, type: :model do
     is_expected.to validate_inclusion_of(:can_family_pay_for_preplacement_visits)
       .to_allow(Home::OPTIONS)
   end
+
 end

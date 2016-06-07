@@ -1,0 +1,12 @@
+.row
+  .col-sm-9
+    = simple_form_for [ @profile, @agency ] do |f|
+      = f.input :agency_name
+      = f.input :agency_phone
+      = f.input :contact_person
+      = f.input :contact_person_phone
+      = f.input :contact_person_email
+      = f.input :confirm_contact_person_email
+      = f.simple_fields_for :address, @address do |builder|
+        = render partial: 'addresses/address_fields', locals: { f: builder }
+      = f.submit class: 'btn btn-primary pull-xs-right'

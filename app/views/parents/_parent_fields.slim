@@ -1,0 +1,19 @@
+.col-sm-12.partial
+  = f.input :first_name
+  = f.input :middle_name
+  = f.input :last_name
+  = f.input :date_of_birth, as: :date, html5: true, order: [:month, :year]
+  = f.input :gender, collection: Parent::GENDER
+  = f.input :religion, collection: Parent::RELIGION
+  = f.input :primary_language, collection: Parent::LANGUAGE
+  = f.input :secondary_language, collection: Parent::LANGUAGE
+  = f.input :occupation
+  = f.input :relationship_status, collection: Parent::RELATIONSHIP_STATUS
+  = f.input :active_or_reserve_duty_military, as: :boolean
+  / = f.association :races, as: :check_boxes
+  = f.hidden_field :_destroy, class: 'remove_field'
+  = link_to "remove", '#', class: 'remove_fields btn btn-warning'
+  hr
+
+coffee:
+  @App.DynamicFields.prototype.removeFields()

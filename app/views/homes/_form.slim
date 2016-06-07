@@ -1,0 +1,7 @@
+
+.row
+  .col-sm-9
+    = simple_form_for @profile, url: { controller: 'homes', action: :update }, method: :patch do |f|
+      = f.simple_fields_for :home do |builder|
+        = render partial: 'homes/home_fields', locals: { f: builder }
+      = f.submit class: 'btn btn-primary pull-xs-right'

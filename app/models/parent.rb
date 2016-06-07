@@ -6,6 +6,7 @@ class Parent
 
   # associations
   embedded_in :profile
+  has_many :races
 
   # fields
   field :fn, as: :first_name, type: String
@@ -13,7 +14,6 @@ class Parent
   field :ln, as: :last_name, type: String
   field :dob, as: :date_of_birth, type: Date
   field :g, as: :gender, type: String
-  field :ra, as: :race, type: Array
   field :re, as: :religion, type: String
   field :pl, as: :primary_language, type: String
   field :sl, as: :secondary_language, type: String
@@ -22,13 +22,15 @@ class Parent
   field :rs, as: :relationship_status, type: String
 
   # validations
-  validates :first_name, :last_name, :date_of_birth, :gender, :race,
+  validates :first_name, :last_name, :date_of_birth, :gender,
             :active_or_reserve_duty_military, :primary_language,
             :relationship_status, presence: true
 
-  validates :gender, inclusion: { in: GENDER_TYPE }
-  validates :race, inclusion: { in: RACE }
-  validates :primary_language, inclusion: { in: PRIMARY_LANGUAGE }
+  validates :gender, inclusion: { in: GENDER }
+  validates :primary_language, inclusion: { in: LANGUAGE }
   validates :religion, inclusion: { in: RELIGION }, allow_nil: true
   validates :relationship_status, inclusion: { in: RELATIONSHIP_STATUS }
+
+  # nested attribtes
+  accepts_nested_attributes_for :races
 end

@@ -1,0 +1,37 @@
+
+.row
+  .col-sm-9
+    .pull-sm-right
+      = link_to 'edit', edit_profile_home_path(@profile, @home)
+  
+  .col-sm-9
+    .col-sm-7
+      strong Can family travel for pre-placement visits:
+    .col-sm-5= @home.can_family_travel_for_preplacement_visits
+    
+    br
+    
+    .col-sm-7
+      strong Can family pay for pre-placement visits:
+    .col-sm-5= @home.can_family_pay_for_preplacement_visits
+    
+    br
+    
+    .col-sm-7
+      strong Is your home wheelchair accessible?
+    .col-sm-5= @home.is_your_home_wheelchair_accessible
+    
+    br
+
+    .col-sm-7
+      strong Address Type
+    .col-sm-5= @home.address_type
+    
+    br
+
+    .col-sm-7
+      strong Home Address
+    .col-sm-5= @home.address.try(:full_address)
+    
+    br
+    

@@ -3,9 +3,10 @@ module ApplicationHelper
     new_object = f.object.send(association).klass.new
     id = new_object.object_id
     fields = f.fields_for(association, new_object, child_index: id) do |builder|
-      render('embedded_fields', f: builder)
+      render(association.to_s.singularize + '_fields', f: builder)
     end
-    link_to(name, '#', class: 'add_fields btn btn-sm btn-primary', data: {id: id, fields: fields.gsub("\n", "")})
+    link_to(name, '#', class: 'add_fields btn btn-secondary',
+                       data: { id: id, fields: fields.gsub("\n", "") })
   end
 
   BOOTSTRAP_FLASH_MSG = { success: 'alert-success',
@@ -28,5 +29,9 @@ module ApplicationHelper
       end)
     end
     nil
+  end
+
+  def form_errors_for(object = nil)
+    render('shared/form_errors', object: object) if object.errors.any?
   end
 end

@@ -4,8 +4,8 @@ class Agency
   include Mongoid::Timestamps
 
   # associations
-  embedded_in :profile
-  has_one :address
+  belongs_to :profile
+  has_one :address, as: :addressable
 
   # fields
   field :cpn, as: :contact_person, type: String
@@ -21,15 +21,15 @@ class Agency
                                 reject_if: proc { |obj| obj[:zip].blank? }
 
   # validations
-  validates :contact_person, :agency_name, :address, :agency_phone,
+  validates :contact_person, :agency_name, :agency_phone,
             :contact_person_phone, :contact_person_email,
             :confirm_contact_person_email, presence: true
 
   validate :email_equals_confirm_email
 
-  # class methods
-  def self.search(user:, radius:)
-    lon, lat = user.profile.address.coordinates
+  # class methodsj
+  def self.search(address:, radius:)
+    lon, lat = address.coordinates
     meters = Geocoder::Calculations.to_kilometers(radius.to_i) * 1000
     client.get('v9bn-m9p9', { "$where" => "within_circle(location, #{lat}, #{lon}, #{meters})" })
   end

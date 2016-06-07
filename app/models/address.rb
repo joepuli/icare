@@ -1,20 +1,15 @@
 class Address
   include Mongoid::Document
   include Geocoder::Model::Mongoid
+  include Mongoid::Timestamps
   include AddressHelper
 
   # attrs
   attr_accessor :full_address
 
-  # constants
-  TYPES = [
-    'United States (including territories)',
-    'Military or Diplomatic (APO, DPO, FPO)',
-    'International'
-  ].freeze
-
   # associations
   belongs_to :addressable, polymorphic: true
+  embedded_in :home
 
   # geocode
   geocoded_by :full_address
@@ -26,12 +21,10 @@ class Address
   field :s, as: :state, type: String
   field :z, as: :zip, type: String
   field :c, as: :country, type: String
-  field :t, as: :type, type: String
   field :co, as: :coordinates, type: Array
 
   # validations
-  validates :home_address, :city, :state, :zip, :type, presence: true
-  validates :type, inclusion: { in: TYPES }
+  validates :home_address, :city, :state, :zip, presence: true
 
   # callbacks
   after_validation :geocode, if: ->(obj) { obj.full_address.present? }

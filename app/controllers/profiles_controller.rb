@@ -1,11 +1,8 @@
 class ProfilesController < ApplicationController
   before_action :find_profile, only: [:show, :edit, :update]
+
   def new
     @profile = current_user.build_profile
-    @profile.trainings.build
-    @profile.courses.build
-    @profile.preferences.build
-    @profile.build_address
   end
 
   def create
@@ -21,10 +18,6 @@ class ProfilesController < ApplicationController
   end
 
   def edit
-    @profile.trainings.build
-    @profile.courses.build
-    @profile.preferences.build
-    @profile.build_address if @profile.address.blank?
   end
 
   def update
@@ -38,15 +31,19 @@ class ProfilesController < ApplicationController
   private
 
   def profile_attributes
-    params.require(:profile).permit(:first_name, :middle_name,
-                                    :last_name, :born_on,
-                                    trainings_attributes: [:id, :name],
-                                    courses_attributes: [:id, :name],
-                                    preferences_attributes: [:id, :name],
-                                    address_attributes: [:address_1, :address_2,
-                                                         :city, :state, :zip,
-                                                         :id]
-                                  )
+    params.require(:profile).permit(:primary_phone, :secondary_phone,
+                                    :family_introduction,
+                                    :lifestyle_and_interests,
+                                    :experience_with_children,
+                                    :support_network,
+                                    :available_resources,
+                                    parents_attributes: [:id, :first_name,
+                                      :middle_name, :last_name,
+                                      :date_of_birth, :gender, :religion,
+                                      :primary_language, :secondary_language,
+                                      :active_or_reserve_duty_military,
+                                      :occupation, :relationship_status,
+                                      race_ids: []])
   end
 
   def find_profile

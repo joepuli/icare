@@ -3,7 +3,7 @@ class Users::SessionsController < Devise::SessionsController
 
   def after_sign_in_path_for(resource)
     case
-    when resource.first_name.blank?
+    when !resource.profile
       new_profile_path
     else
       profile_path(resource.profile)

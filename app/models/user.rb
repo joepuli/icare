@@ -36,7 +36,4 @@ class User
 
   # associtions
   has_one :profile
-
-  # delegations
-  delegate :first_name, to: :profile, allow_nil: true
 end

@@ -1,6 +1,11 @@
 require 'rails_helper'
 
 RSpec.describe Address, type: :model do
+  # include documents
+  it { is_expected.to be_timestamped_document }
+  it { is_expected.to be_timestamped_document.with(:created) }
+  it { is_expected.to be_timestamped_document.with(:updated) }
+
   # associations
   it { is_expected.to belong_to(:addressable) }
 

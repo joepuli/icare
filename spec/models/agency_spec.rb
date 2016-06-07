@@ -9,7 +9,7 @@ RSpec.describe Agency, type: :model do
 
   # associations
   it { is_expected.to be_embedded_in(:profile) }
-  it { is_expected.to have_one(:address) }
+  it { is_expected.to embed_one(:address) }
 
   # nested attributes
   it { is_expected.to accept_nested_attributes_for(:address) }

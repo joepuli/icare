@@ -6,7 +6,7 @@ class Profile
   belongs_to :user
   embeds_one :license, cascade_callbacks: true
   embeds_one :home, cascade_callbacks: true
-  embeds_one :agency, cascade_callbacks: true
+  has_one :agency
   embeds_many :parents, cascade_callbacks: true
   embeds_many :children, cascade_callbacks: true
   has_one :address, as: :addressable
@@ -34,4 +34,9 @@ class Profile
             length: { maximum: 3000 }
   validates :support_network, :available_resources,
             length: { maximum: 3000 }, allow_nil: true
+  validates :parents, associated: true
+
+  # nested attributes
+  accepts_nested_attributes_for :parents, allow_destroy: true
+  accepts_nested_attributes_for :children, allow_destroy: true
 end

@@ -1,0 +1,28 @@
+.col-sm-9
+  .col-sm-12
+    .pull-sm-right
+      = link_to 'edit', [:edit, @profile, child]
+  
+  .col-sm-12
+    .col-sm-4
+      strong Birth month and year
+    .col-sm-8= child.birth_month_and_year
+    
+    br
+    
+    .col-sm-4
+      strong Gender
+    .col-sm-8= child.gender
+    
+    br
+    
+    .col-sm-4
+      strong Child became part of family by:
+    .col-sm-8= child.child_became_part_of_family_by
+    
+    br
+    
+    .col-sm-4
+      strong Any challenges or disabilities?
+    .col-sm-8= child.any_challenges_or_disabilities?
+    

@@ -9,6 +9,8 @@ html
     = render 'shared/main_menu'
     = render 'shared/notifications'
     .container-fluid
+      == yield :form_errors
+      = render 'shared/profile_menu' if user_signed_in?
       == yield
       = render 'shared/modal'
         
