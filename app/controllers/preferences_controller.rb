@@ -23,7 +23,7 @@ class PreferencesController < ApplicationController
 
   def update
     if @preference.update_attributes(preference_attributes)
-      redirect_to [ @profile, @preference ]
+      redirect_to @preference
     else
       render :edit
     end
@@ -37,11 +37,11 @@ class PreferencesController < ApplicationController
                                        :oldest_age_acceptable,
                                        :minimum_number_of_children,
                                        :maximum_number_of_children,
-                                       :consider_LGBTQ_youth?)
+                                       :consider_LGBTQ_youth)
   end
 
   def find_profile
-    @profile = Profile.find(params[:profile_id])
+    @profile = current_user.profile
   end
 
   def find_preference

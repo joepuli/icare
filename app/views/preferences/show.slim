@@ -1,7 +1,7 @@
 .row
   .col-sm-7
     .pull-sm-right
-      = link_to 'edit', [:edit, @profile, @preference]
+      = link_to 'edit', [:edit, @preference, profile_id: @profile.id]
   
   .col-sm-7
     .col-sm-5
@@ -42,7 +42,7 @@
     
     .col-sm-5
       strong Consider LGBTQ identified youth?
-    .col-sm-7= @preference.consider_LGBTQ_youth?
+    .col-sm-7= @preference.consider_LGBTQ_youth? ? 'Yes' : 'No'
     
     br
     

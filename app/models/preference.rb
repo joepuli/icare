@@ -11,7 +11,7 @@ class Preference
   embeds_one :development, cascade_callbacks: true
   embeds_one :emotion, cascade_callbacks: true
   embeds_one :physical, cascade_callbacks: true
-  embeds_one :risk, cascade_callbacks: true
+  has_many :risk
 
   # fields
   field :g, as: :gender, type: String
@@ -20,12 +20,12 @@ class Preference
   field :oac, as: :oldest_age_acceptable, type: String
   field :minc, as: :minimum_number_of_children, type: Integer
   field :maxc, as: :maximum_number_of_children, type: Integer
-  field :lgbtq, as: :consider_LGBTQ_youth?, type: Boolean, default: false
+  field :lgbtq, as: :consider_LGBTQ_youth, type: Boolean, default: false
 
   # validations
   validates :gender, :racial_composition, :youngest_age_acceptable,
             :oldest_age_acceptable, :minimum_number_of_children,
-            :maximum_number_of_children, :consider_LGBTQ_youth?,
+            :maximum_number_of_children, :consider_LGBTQ_youth,
             presence: true
   validates :gender, inclusion: { in: GENDER }
   validates :racial_composition, inclusion: { in: COMPOSITION }

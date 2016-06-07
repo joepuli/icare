@@ -18,7 +18,7 @@ class Risk
   ].freeze
 
   # associations
-  embedded_in :preference
+  belongs_to :preference
 
   # field
   field :r, as: :risk_factors_your_family_will_consider, type: Array

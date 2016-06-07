@@ -1,11 +1,11 @@
 .row
   .col-sm-9
-    = simple_form_for [ @profile, @preference ] do |f|
+    = simple_form_for @preference do |f|
       = f.input :gender, collection: Parent::GENDER
       = f.input :racial_composition, collection: Preference::COMPOSITION
       = f.input :youngest_age_acceptable, collection: Preference::ACCEPTABLE_RANGE
       = f.input :oldest_age_acceptable, collection: Preference::ACCEPTABLE_RANGE
       = f.input :minimum_number_of_children, collection: Preference::QUANTITY
       = f.input :maximum_number_of_children, collection: Preference::QUANTITY
-      = f.input :consider_LGBTQ_youth?, as: :radio_buttons
+      = f.input :consider_LGBTQ_youth, as: :radio_buttons
       = f.submit class: 'btn btn-primary pull-xs-right'
