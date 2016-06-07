@@ -38,6 +38,10 @@ class Preference
               greater_than_or_equal_to: :minimum_number_of_children
             }
   validate :oldest_cannot_be_less_than_youngest
+  validates :physical, associated: true
+
+  # nested attributes
+  accepts_nested_attributes_for :physical
 
   # instance methods
   def oldest_cannot_be_less_than_youngest

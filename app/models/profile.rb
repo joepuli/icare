@@ -35,6 +35,7 @@ class Profile
   validates :support_network, :available_resources,
             length: { maximum: 3000 }, allow_nil: true
   validates :parents, associated: true
+  validates :children, associated: true
 
   # nested attributes
   accepts_nested_attributes_for :parents, allow_destroy: true
