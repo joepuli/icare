@@ -32,7 +32,7 @@ class Preference
   validates :youngest_age_acceptable, :oldest_age_acceptable,
             inclusion: { in: ACCEPTABLE_RANGE }
   validates :minimum_number_of_children, :maximum_number_of_children,
-            inclusion: { in: ACCEPTABLE_RANGE }
+            inclusion: { in: QUANTITY }
   validates :maximum_number_of_children,
             numericality: {
               greater_than_or_equal_to: :minimum_number_of_children

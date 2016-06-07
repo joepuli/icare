@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :homes
     resources :parents
     resources :children
+    resources :preferences
   end
   namespace :ujs do
     resources :trainings, :courses, :preferences,

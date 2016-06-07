@@ -10,7 +10,7 @@ class Profile
   embeds_many :parents, cascade_callbacks: true
   embeds_many :children, cascade_callbacks: true
   has_one :address, as: :addressable
-  has_many :preferences
+  has_one :preference
 
   # fields
   field :p1, as: :primary_phone, type: String

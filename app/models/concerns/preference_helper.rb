@@ -16,5 +16,5 @@ module PreferenceHelper
 
   ACCEPTABLE_RANGE = ['infant'].push(('1'..'21').to_a).flatten.freeze
 
-  QUANTITY = ('1'..'12').to_a.freeze
+  QUANTITY = (1..12).to_a.freeze
 end
