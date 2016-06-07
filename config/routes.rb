@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   resources :preferences do
     resources :risks
     resources :physicals
+    resources :emotions
+    resources :developments
+    resources :learnings
   end
   namespace :ujs do
     resources :trainings, :courses, :preferences,

@@ -1,0 +1,9 @@
+.row
+  .col-sm-9
+    .pull-sm-right
+      = link_to 'edit', [:edit, @preference, @development]
+  
+  .col-sm-9
+    .col-sm-12
+      strong What is the highest level of developmental disablility in a child your family will consider?
+    .col-sm-12= @development.hightest_level_of_development_disability_in_a_child_your_family_will_consider

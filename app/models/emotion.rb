@@ -8,7 +8,7 @@ class Emotion
   embedded_in :preference
 
   # fields
-  field :e, as: :hightest_level_of_emotional_disability_in_a_child_your_family_will_consider?,
+  field :e, as: :hightest_level_of_emotional_disability_in_a_child_your_family_will_consider,
             type: String
 
   # validation

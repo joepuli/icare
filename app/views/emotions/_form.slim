@@ -1,0 +1,7 @@
+.row
+  .col-sm-9
+    = simple_form_for @preference, url: { controller: 'emotions', action: :update }, method: :patch do |f|
+      = f.simple_fields_for :emotion do |builder|
+        = builder.input :hightest_level_of_emotional_disability_in_a_child_your_family_will_consider, 
+            as: :radio_buttons, item_wrapper_class: 'inline', collection: Emotion::SEVERITY
+      = f.submit class: 'btn btn-primary'

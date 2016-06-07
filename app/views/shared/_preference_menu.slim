@@ -1,2 +1,5 @@
 li= link_to 'Risks', preference.risks? ? [preference, :risks] : edit_preference_risk_path(preference, :risk)
 li= link_to 'Physical condition', preference.physical? ? [preference, preference.physical] : edit_preference_physical_path(preference, :physical)
+li= link_to 'Emotional condition', preference.emotion? ? [preference, preference.emotion] : edit_preference_emotion_path(preference, :emotion)
+li= link_to 'Developmental condition', preference.development? ? [preference, preference.development] : edit_preference_development_path(preference, :development)
+li= link_to 'Learning condition', preference.learning? ? [preference, preference.learning] : edit_preference_learning_path(preference, :learning)
