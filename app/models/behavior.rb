@@ -8,7 +8,7 @@ class Behavior
   embedded_in :preference
 
   # fields
-  field :b, as: :highest_level_of_behavior_issue_your_family_will_consider?,
+  field :b, as: :highest_level_of_behavior_issue_your_family_will_consider,
             type: String
 
   # validations

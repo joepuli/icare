@@ -3,3 +3,4 @@ li= link_to 'Physical condition', preference.physical? ? [preference, preference
 li= link_to 'Emotional condition', preference.emotion? ? [preference, preference.emotion] : edit_preference_emotion_path(preference, :emotion)
 li= link_to 'Developmental condition', preference.development? ? [preference, preference.development] : edit_preference_development_path(preference, :development)
 li= link_to 'Learning condition', preference.learning? ? [preference, preference.learning] : edit_preference_learning_path(preference, :learning)
+li= link_to 'Behavior', preference.behavior? ? [preference, preference.behavior] : edit_preference_behavior_path(preference, :behavior)

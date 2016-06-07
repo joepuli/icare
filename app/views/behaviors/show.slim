@@ -1,0 +1,9 @@
+.row
+  .col-sm-9
+    .pull-sm-right
+      = link_to 'edit', [:edit, @preference, @behavior]
+  
+  .col-sm-9
+    .col-sm-12
+      strong What is the highest level of behavioral issue your family will consider?
+    .col-sm-12= @behavior.highest_level_of_behavior_issue_your_family_will_consider

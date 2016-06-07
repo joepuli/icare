@@ -41,7 +41,8 @@ class Preference
   validates :physical, associated: true
 
   # nested attributes
-  accepts_nested_attributes_for :physical, :emotion, :development, :learning
+  accepts_nested_attributes_for :physical, :emotion, :development, :learning,
+                                :behavior
 
   # instance methods
   def oldest_cannot_be_less_than_youngest
