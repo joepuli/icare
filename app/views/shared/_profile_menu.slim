@@ -7,7 +7,9 @@
       li= link_to 'Home', profile.home? ? [profile, profile.home] : edit_profile_home_path(profile, :home)
       li= link_to 'Parent information', profile.parents? ? [profile, :parents] : edit_profile_parent_path(profile, :parent)
       li= link_to 'Children information', profile.children? ? [profile, :children] : edit_profile_child_path(profile, :child)
-      li= link_to 'Preference', profile.preference? ? preference_path(profile.preference, profile_id: profile.id) : [:new, :preference, profile_id: profile.id]
+      li= link_to 'Preference', profile.preference? ? profile.preference : [:new, :preference]
+      - if profile.preference.present?
+        = render partial: 'shared/preference_menu', locals: { preference: profile.preference }
   - else
     ul.nav.nav-sidebar
       li= link_to 'Profile', [:new, :profile]

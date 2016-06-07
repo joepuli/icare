@@ -6,7 +6,7 @@ class ParentsController < ApplicationController
   end
 
   def edit
-    @parent = @profile.parents? ? @profile.parent.first : @profile.parents.build
+    @parent = @profile.parents? ? @profile.parents.first : @profile.parents.build
   end
 
   def update

@@ -21,8 +21,8 @@ class Risk
   belongs_to :preference
 
   # field
-  field :r, as: :risk_factors_your_family_will_consider, type: Array
+  field :n, as: :name
 
   # validations
-  validates :r, inclusion: { in: FACTORS }, allow_nil: true
+  validates :n, inclusion: { in: FACTORS }
 end

@@ -11,7 +11,7 @@ class Preference
   embeds_one :development, cascade_callbacks: true
   embeds_one :emotion, cascade_callbacks: true
   embeds_one :physical, cascade_callbacks: true
-  has_many :risk
+  has_many :risks
 
   # fields
   field :g, as: :gender, type: String

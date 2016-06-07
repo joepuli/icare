@@ -1,0 +1,5 @@
+.row
+  .col-sm-9
+    = simple_form_for @preference, url: { controller: 'risks', action: :update }, method: :patch do |f|
+      = f.association :risks, as: :check_boxes
+      = f.submit class: 'btn btn-primary'
