@@ -20,7 +20,7 @@ gem 'soda-ruby', require: 'soda'
 gem 'geocoder', '~> 1.3.0'
 gem 'gmaps4rails', '~> 2.1.0'
 gem 'underscore-rails', '~> 1.8.0'
-gem 'simple_form'
+gem 'simple_form', '~> 3.2.1'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
