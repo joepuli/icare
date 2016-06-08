@@ -1,11 +1,9 @@
-.row
-  .col-sm-9
-    = simple_form_for @profile do |f|
-      = f.input :primary_phone, as: :tel
-      = f.input :secondary_phone, as: :tel
-      = f.input :family_introduction, as: :text, input_html: { rows: 5 }
-      = f.input :lifestyle_and_interests, as: :text, input_html: { rows: 5 }
-      = f.input :experience_with_children, as: :text, input_html: { rows: 5 }
-      = f.input :support_network, as: :text, input_html: { rows: 5 }
-      = f.input :available_resources, as: :text, input_html: { rows: 5 }
-      = f.submit class: 'btn btn-primary pull-xs-right'
+= simple_form_for @profile do |f|
+  = f.input :primary_phone, as: :tel
+  = f.input :secondary_phone, as: :tel
+  = f.input :family_introduction, as: :text, input_html: { rows: 5 }
+  = f.input :lifestyle_and_interests, as: :text, input_html: { rows: 5 }
+  = f.input :experience_with_children, as: :text, input_html: { rows: 5 }
+  = f.input :support_network, as: :text, input_html: { rows: 5 }
+  = f.input :available_resources, as: :text, input_html: { rows: 5 }
+  = f.submit class: 'btn btn-primary'

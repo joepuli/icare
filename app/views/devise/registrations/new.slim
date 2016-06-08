@@ -1,9 +1,11 @@
-
-.col-sm-offset-3
-  .col-sm-6
-    h2 Sign up
+.middle-box.text-center.loginscreen.animated.fadeInDown
+  div
+    div
+      h1.logo-name QualApps AFP
+    p Create account  
+    h3 Register to QualApps AFP
     = form_for(resource, as: resource_name, 
-                         url: registration_path(resource_name)) do |f|
+                         url: registration_path(resource_name), html: { class: 'm-t'}) do |f|
       = devise_error_messages!
       
       .form-group.row
@@ -21,8 +23,7 @@
         .col-sm-9
           = f.password_field :password_confirmation, autocomplete: 'off', 
                                                      class: 'form-control'
-      .pull-sm-left
-        = f.submit 'Sign up', class: 'btn btn-primary'
-
-    .pull-xs-right
+      = f.submit 'Register', class: 'btn btn-primary block full-width m-b'
+      p.text-muted.text-center
+        small Already have an account?
       = render 'devise/shared/links'

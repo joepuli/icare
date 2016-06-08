@@ -1,14 +1,15 @@
-nav.navbar.navbar-light.bg-faded
-  = link_to 'iCare', root_path, class: 'navbar-brand'
-  - if user_signed_in?
-    ul.nav.navbar-nav.pull-xs-right
-      li.nav-item= link_to 'agencies', [:agencies], class: 'nav-link'
-      li.nav-item= link_to 'sign out', destroy_user_session_path, 
-                                       method: :delete,
-                                       class: 'nav-link'
-  - else
-    ul.nav.navbar-nav.pull-xs-right
-      li.nav-item= link_to 'sign up', new_user_registration_path,
-                                      class: 'nav-link'
-      li.nav-item= link_to 'sign in', new_user_session_path,
+nav.navbar-fixed-top
+  .top-navigation
+    = link_to 'QualApps AFP', root_path, class: 'navbar-brand'
+  div
+    ul.nav.navbar-nav.pull-xs-right.navbar-right
+      - if user_signed_in?
+        li.nav-item= link_to 'agencies', [:agencies], class: 'nav-link'
+        li.nav-item= link_to 'log out', destroy_user_session_path, 
+                                         method: :delete,
+                                         class: 'nav-link'
+      - else
+        li.nav-item= link_to 'register', new_user_registration_path,
+                                        class: 'nav-link'
+        li.nav-item= link_to 'log in', new_user_session_path,
                                         class: 'nav-link'
