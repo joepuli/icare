@@ -7,7 +7,8 @@ nav.navbar-fixed-top
         li.nav-item class=active_class(root_path)
           = link_to 'Profile', root_path, class: 'nav-link'
         li.nav-item class=active_class([:agencies])
-          = link_to 'Agency Lookup', [:agencies], class: 'nav-link'
+          = link_to 'Agency Lookup', [:agencies], class: 'nav-link',
+            data: { turbolinks: false }
         li.nav-item class=active_class([:conversations])
           = link_to 'Inbox', [:conversations], class: 'nav-link'
       ul.nav.navbar-nav.pull-xs-right.navbar-right

@@ -4,9 +4,9 @@
 #= require tether
 #= require bootstrap
 #= require turbolinks
+#= require main
 #= require underscore
 #= require gmaps/google
-#= require main
 #= require map
 
 class @App.DynamicFields
