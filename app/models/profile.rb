@@ -29,7 +29,7 @@ class Profile
             :lifestyle_and_interests, :experience_with_children,
             presence: true
   validates :family_introduction, :lifestyle_and_interests,
-            length: { minimum: 250, maximum: 3000 }
+            length: { maximum: 3000 }
   validates :experience_with_children,
             length: { maximum: 3000 }
   validates :support_network, :available_resources,

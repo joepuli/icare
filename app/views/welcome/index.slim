@@ -1,1 +1,18 @@
-strong I am in welcome folder
+.col-md-9
+  .loginColumns.animated.fadeInDown
+    .row
+      .col-md-12
+        h1 Welcome to QualApps, Inc VendorPool AFP Prototype.
+      .col-md-4.col-md-offset-8
+        - if user_signed_in?
+          - if current_user.profile?
+            = link_to "Let's checkout your profile...", current_user.profile
+          - else
+            = link_to "Let's get started.", [:new, :profile]
+        - else
+          = link_to 'Create a profile to get start', new_user_registration_path
+          | &#32
+          | or
+          | &#32
+          = link_to 'Log in', new_user_session_path
+          

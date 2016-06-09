@@ -8,6 +8,7 @@ module PreferenceHelper
   ].freeze
 
   COMPOSITION = [
+    'No preference',
     'Racial composition not important',
     'Single or multiracial child',
     'Single-race child only',
