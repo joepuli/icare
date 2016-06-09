@@ -2,17 +2,17 @@
   .ibox.float-e-margins
     .ibox-content.mailbox-content
       .file-manager
-        = link_to 'Compose Mail', [:new, :message], class: 'btn btn-block btn-primary compose-mail'
+        = link_to 'Compose Mail', [:new, :conversation], class: 'btn btn-block btn-primary compose-mail'
         .space-25
         h5 Folders
         ul.folder-list.m-b-md style=("padding: 0") 
           li
-            = link_to messages_path do
+            = link_to conversations_path do
               i.fa.fa-inbox
               | Inbox
-              span.label.label-warning.pull-right 16
+              span.label.label-warning.pull-right= current_user.received_messages.size
           li
-            = link_to messages_path do
+            = link_to conversations_path do
               i.fa.fa-envelope-o
               | Send Mail
         .clearfix

@@ -1,6 +1,6 @@
 nav.navbar-fixed-top
   .top-navigation
-    = link_to 'QualApps AFP', root_path, class: 'navbar-brand'
+    = link_to 'QualApps ADPQ', root_path, class: 'navbar-brand'
   div
     - if user_signed_in?
       ul.nav.navbar-nav.navbar-right
@@ -8,8 +8,8 @@ nav.navbar-fixed-top
           = link_to 'Profile', root_path, class: 'nav-link'
         li.nav-item class=active_class([:agencies])
           = link_to 'Agency Lookup', [:agencies], class: 'nav-link'
-        li.nav-item class=active_class([:messages])
-          = link_to 'Inbox', [:messages], class: 'nav-link'
+        li.nav-item class=active_class([:conversations])
+          = link_to 'Inbox', [:conversations], class: 'nav-link'
       ul.nav.navbar-nav.pull-xs-right.navbar-right
         li.nav-item
           = link_to destroy_user_session_path, method: :delete, class: 'nav-link' do

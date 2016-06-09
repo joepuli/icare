@@ -1,7 +1,0 @@
-= content_tag_for :div, preference do
-  = link_to [:edit, :ujs, preference, profile_id: @profile.id], remote: true do
-    span.octicon.octicon-pencil
-  = link_to [:ujs, preference, profile_id: @profile.id], method: :delete, remote: true do
-    span.octicon.octicon-trashcan
-  | 
-  = preference.name

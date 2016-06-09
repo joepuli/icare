@@ -1,0 +1,27 @@
+.row
+  = render 'mail_menu'
+  .col-lg-9.animated.fadeInRight
+    .mail-box-header
+      .pull-right.tooltip-demo
+        = link_to [:conversations], class: 'btn btn-danger btn-sm', data: { confirm: 'Are you sure?' } do
+          i.fa.fa-times
+          | Discard
+      h2
+        | Compose mail
+    .mail-box
+      .mail-body
+        = simple_form_for @conversation do |f|
+          = f.input :subject
+          = f.simple_fields_for :messages do |builder|
+            = builder.association :to, as: :select, collection: User.all.pluck(:email, :id)
+            = builder.hidden_field :from_id, as: :hidden, value: current_user.id
+            .mail-text.h-200
+              = builder.input :body, as: :text, input_html: { rows: 10,
+                  placeholder: 'Hello.'},
+                wrapper: :vertical_form, label: false
+              .clearfix
+          .mail-body.text-right.tooltip-demo
+            = button_tag(type: 'submit', class: 'btn btn-sm btn-primary') do
+              i.fa.fa-reply
+              | Send
+      .clearfix

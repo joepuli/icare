@@ -1,0 +1,14 @@
+.mail-body
+  span.font-noraml From:
+  | &#32
+  = message.from.email
+  span.font-noraml.pull-xs-right 
+    = distance_of_time_in_words_to_now message.created_at
+  hr
+  p= message.body
+.mail-body.text-right.tooltip-demo
+  = link_to [:edit, @conversation], class: 'btn btn-sm btn-white' do
+    i.fa.fa-reply
+    | Reply
+hr
+  .clearfix

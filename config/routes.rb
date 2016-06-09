@@ -3,7 +3,7 @@ Rails.application.routes.draw do
                                     sessions: 'users/sessions'
                                   }
 
-  resources :messages, path: 'inbox'
+  resources :conversations, path: 'inbox'
   resources :agencies, only: :index
   resources :profiles do
     resources :licenses, except: :index

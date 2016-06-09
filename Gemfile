@@ -22,7 +22,8 @@ gem 'gmaps4rails', '~> 2.1.0'
 gem 'underscore-rails', '~> 1.8.0'
 gem 'simple_form', '~> 3.2.1'
 gem 'font-awesome-rails'
-gem 'puma'
+gem 'passenger', '>= 5.0.25', require: 'phusion_passenger/rack_handler'
+gem 'kaminari'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -46,7 +47,11 @@ group :development do
   gem 'capistrano-rvm',     require: false
   gem 'capistrano-rails',   require: false
   gem 'capistrano-bundler', require: false
-  gem 'capistrano3-puma',   require: false
+  gem 'puma'
+end
+
+group :production do
+  # gem 'passenger', '>= 5.0.25', require: 'phusion_passenger/rack_handler'
 end
 
 group :test do

@@ -4,18 +4,22 @@ class Conversation
   include Mongoid::Timestamps
 
   # associations
-  has_many :messages
+  belongs_to :user
+  has_many :messages, dependent: :destroy
 
   # fields
-  # field :s, as: :subject, type: String
+  field :s, as: :subject, type: String
 
   # validations
-  # validates :subject, presence: true,
-  #                     length: { minimum: 1, maximum: 1000 }
+  validates :subject, presence: true
+  validates :messages, associated: true
+
+  # nested attributes
+  accepts_nested_attributes_for :messages
+
+  # delegate
+
+  # scopes
 
   # instance methods
-
-  # def receipts
-  #   Message.in(id: messages.pluck(:message_id))
-  # end
 end

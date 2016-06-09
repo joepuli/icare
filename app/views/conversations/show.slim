@@ -1,0 +1,20 @@
+.row
+  = render 'mail_menu'
+
+  .col-lg-9.animated.fadeInRight
+    .mail-box-header
+      .pull-right.tooltip-demo
+        a.btn.btn-white.btn-sm data-placement="top" data-toggle="tooltip" href="mail_compose.html" title="Reply" 
+          i.fa.fa-reply
+          | Reply
+      h2
+        | Conversation
+      .mail-tools.tooltip-demo.m-t-md
+        h3
+          span.font-noraml> Subject:
+          = @conversation.subject
+        h5
+          span.pull-right.font-noraml= distance_of_time_in_words_to_now @conversation.created_at
+    .mail-box
+      - @conversation.messages.each do |message|
+        = render partial: 'conversations/message', locals: { message: message }
