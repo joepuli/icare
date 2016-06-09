@@ -1,12 +1,17 @@
-.row
-  .col-sm-9
-    = simple_form_for [ @profile, @agency ], wrapper: :horizontal_form do |f|
-      = f.input :agency_name
-      = f.input :agency_phone
-      = f.input :contact_person
-      = f.input :contact_person_phone
-      = f.input :contact_person_email
-      = f.input :confirm_contact_person_email
-      = f.simple_fields_for :address, @address do |builder|
-        = render partial: 'addresses/address_fields', locals: { f: builder }
-      = f.submit class: 'btn btn-primary pull-xs-right'
+.col-lg-9.animated.fadeInRight
+  .row
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-title 
+          h5 Agency
+        .ibox-content
+          = simple_form_for [ @profile, @agency ], wrapper: :horizontal_form do |f|
+            = f.input :agency_name
+            = f.input :agency_phone
+            = f.input :contact_person
+            = f.input :contact_person_phone
+            = f.input :contact_person_email
+            = f.input :confirm_contact_person_email
+            = f.simple_fields_for :address, @address do |builder|
+              = render partial: 'addresses/address_fields', locals: { f: builder }
+            = f.submit class: 'btn btn-primary'

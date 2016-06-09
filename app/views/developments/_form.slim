@@ -1,7 +1,13 @@
-.row
-  .col-sm-9
-    = simple_form_for @preference, url: { controller: 'developments', action: :update }, method: :patch do |f|
-      = f.simple_fields_for :development do |builder|
-        = builder.input :hightest_level_of_development_disability_in_a_child_your_family_will_consider, 
-            as: :radio_buttons, item_wrapper_class: 'inline', collection: Development::SEVERITY
-      = f.submit class: 'btn btn-primary'
+.col-lg-9.animated.fadeInRight
+  .row
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-title 
+          h5 Developmental condition
+        .ibox-content
+          = simple_form_for @preference, url: { controller: 'developments', action: :update }, method: :patch do |f|
+            = f.simple_fields_for :development do |builder|
+              = builder.input :hightest_level_of_development_disability_in_a_child_your_family_will_consider, 
+                  as: :radio_buttons, collection: Development::SEVERITY,
+                  wrapper: :vertical_boolean
+            = f.submit class: 'btn btn-primary'

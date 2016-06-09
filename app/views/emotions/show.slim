@@ -1,9 +1,16 @@
-.row
-  .col-sm-9
-    .pull-sm-right
-      = link_to 'edit', [:edit, @preference, @emotion]
-  
-  .col-sm-9
-    .col-sm-12
-      strong What is the highest level of emotional disablility in a child your family will consider?
-    .col-sm-12= @emotion.hightest_level_of_emotional_disability_in_a_child_your_family_will_consider
+.col-lg-9.animated.fadeInRight
+  .row
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-title 
+          .pull-sm-right
+            = link_to 'edit', [:edit, @preference, @emotion]
+          h5 Emotional condition
+        .ibox-content
+          .col-sm-9
+            strong What is the highest level of emotional disablility in a child your family will consider?
+          .col-sm-3
+            = @emotion.hightest_level_of_emotional_disability_in_a_child_your_family_will_consider
+
+          hr
+          .clearfix

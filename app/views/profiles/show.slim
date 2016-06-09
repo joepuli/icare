@@ -1,51 +1,57 @@
-.row
-  .col-sm-8
-    .pull-sm-right
-      = link_to 'edit', [:edit, @profile]
-  
-  .col-sm-8
-    .col-sm-4
-      strong Primary phone
-    .col-sm-8= number_to_phone @profile.primary_phone 
-    
-    .clearfix
-    hr
-    
-    .col-sm-4
-      strong Secondary phone
-    .col-sm-8= number_to_phone @profile.secondary_phone
-    
-    .clearfix
-    hr
+.col-lg-9.animated.fadeInRight
+  .row
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-title 
+          .pull-sm-right
+            = link_to 'edit', [:edit, @profile]
+          h5 Basic Profile
+        .ibox-content
+          .col-sm-4
+            strong Primary phone
+          .col-sm-8= number_to_phone @profile.primary_phone 
+          
+          .clearfix
+          hr
+          
+          .col-sm-4
+            strong Secondary phone
+          .col-sm-8= number_to_phone @profile.secondary_phone
+          
+          .clearfix
+          hr
 
-    .col-sm-4
-      strong Family introduction
-    .col-sm-8= @profile.family_introduction
-    
-    .clearfix
-    hr
-    
-    .col-sm-4
-      strong Lifestyle and interets
-    .col-sm-8= @profile.lifestyle_and_interests
-    
-    .clearfix
-    hr
-    
-    .col-sm-4
-      strong Experience with children
-    .col-sm-8= @profile.experience_with_children
-    
-    .clearfix
-    hr
-    
-    .col-sm-4
-      strong Support network
-    .col-sm-8= @profile.support_network
-    
-    .clearfix
-    hr
-    
-    .col-sm-4
-      strong Available resources
-    .col-sm-8= @profile.available_resources
+          .col-sm-4
+            strong Family introduction
+          .col-sm-8= @profile.family_introduction
+          
+          .clearfix
+          hr
+          
+          .col-sm-4
+            strong Lifestyle and interets
+          .col-sm-8= @profile.lifestyle_and_interests
+          
+          .clearfix
+          hr
+          
+          .col-sm-4
+            strong Experience with children
+          .col-sm-8= @profile.experience_with_children
+          
+          .clearfix
+          hr
+          
+          .col-sm-4
+            strong Support network
+          .col-sm-8= @profile.support_network
+          
+          .clearfix
+          hr
+          
+          .col-sm-4
+            strong Available resources
+          .col-sm-8= @profile.available_resources
+
+          .clearfix
+          hr

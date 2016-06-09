@@ -1,4 +1,5 @@
 class AgenciesController < ApplicationController
+  layout 'profile', only: :index
   before_action :find_profile, except: :index
   before_action :find_agency, only: [:edit, :update, :show]
   respond_to :html, :js

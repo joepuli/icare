@@ -2,14 +2,23 @@ nav.navbar-fixed-top
   .top-navigation
     = link_to 'QualApps AFP', root_path, class: 'navbar-brand'
   div
-    ul.nav.navbar-nav.pull-xs-right.navbar-right
-      - if user_signed_in?
-        li.nav-item= link_to 'agencies', [:agencies], class: 'nav-link'
-        li.nav-item= link_to 'log out', destroy_user_session_path, 
-                                         method: :delete,
-                                         class: 'nav-link'
-      - else
-        li.nav-item= link_to 'register', new_user_registration_path,
-                                        class: 'nav-link'
-        li.nav-item= link_to 'log in', new_user_session_path,
-                                        class: 'nav-link'
+    - if user_signed_in?
+      ul.nav.navbar-nav.navbar-right
+        li.nav-item class=active_class(root_path)
+          = link_to 'Profile', root_path, class: 'nav-link'
+        li.nav-item class=active_class([:agencies])
+          = link_to 'Agency Lookup', [:agencies], class: 'nav-link'
+        li.nav-item class=active_class([:messages])
+          = link_to 'Inbox', [:messages], class: 'nav-link'
+      ul.nav.navbar-nav.pull-xs-right.navbar-right
+        li.nav-item
+          = link_to destroy_user_session_path, method: :delete, class: 'nav-link' do
+              i.fa.fa-sign-out
+              | Log out
+                                         
+    - else
+      ul.nav.navbar-nav.pull-xs-right.navbar-right
+        li.nav-item class=active_class(new_user_registration_path)
+          = link_to 'Register', new_user_registration_path, class: 'nav-link'
+        li.nav-item class=active_class(new_user_session_path)
+          = link_to 'Log in', new_user_session_path, class: 'nav-link'

@@ -1,7 +1,7 @@
 doctype html
 html
   head
-    title QualApps AFP Vendor Pool
+    title ICare
     = csrf_meta_tags
     = stylesheet_link_tag    'application', media: 'all'
     = javascript_include_tag 'application'
@@ -13,7 +13,6 @@ html
       = render 'shared/notifications'
       .container-fluid
         == yield :form_errors
-        = render 'shared/profile_menu' if user_signed_in?
         == yield
         = render 'shared/modal'
         

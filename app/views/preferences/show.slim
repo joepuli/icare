@@ -1,48 +1,58 @@
-.row
-  .col-sm-7
-    .pull-sm-right
-      = link_to 'edit', [:edit, @preference, profile_id: @profile.id]
-  
-  .col-sm-7
-    .col-sm-5
-      strong Gender
-    .col-sm-7= @preference.gender
-    
-    br
-    
-    .col-sm-5
-      strong Racial composition
-    .col-sm-7= @preference.racial_composition
-    
-    br
-    
-    .col-sm-5
-      strong Youngest age acceptable
-    .col-sm-7= @preference.youngest_age_acceptable
-    
-    br
+.col-lg-9.animated.fadeInRight
+  .row
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-title 
+          .pull-sm-right
+            = link_to 'edit', [:edit, @preference, profile_id: @profile.id]
+          h5 Basic Preferences
+        .ibox-content
+          .col-sm-5
+            strong Gender
+          .col-sm-7= @preference.gender
+          
+          hr
+          .clearfix
+          
+          .col-sm-5
+            strong Racial composition
+          .col-sm-7= @preference.racial_composition
+          
+          hr
+          .clearfix
+          
+          .col-sm-5
+            strong Youngest age acceptable
+          .col-sm-7= @preference.youngest_age_acceptable
+          
+          hr
+          .clearfix
 
-    .col-sm-5
-      strong Oldest age acceptable
-    .col-sm-7= @preference.oldest_age_acceptable
-    
-    br
-    
-    .col-sm-5
-      strong Minimum number of childrend
-    .col-sm-7= @preference.minimum_number_of_children
-    
-    br
-    
-    .col-sm-5
-      strong Maximum number of childrend
-    .col-sm-7= @preference.maximum_number_of_children
-    
-    br
-    
-    .col-sm-5
-      strong Consider LGBTQ identified youth?
-    .col-sm-7= @preference.consider_LGBTQ_youth? ? 'Yes' : 'No'
-    
-    br
-    
+          .col-sm-5
+            strong Oldest age acceptable
+          .col-sm-7= @preference.oldest_age_acceptable
+          
+          hr
+          .clearfix
+          
+          .col-sm-5
+            strong Minimum number of childrend
+          .col-sm-7= @preference.minimum_number_of_children
+          
+          hr
+          .clearfix
+          
+          .col-sm-5
+            strong Maximum number of childrend
+          .col-sm-7= @preference.maximum_number_of_children
+          
+          hr
+          .clearfix
+          
+          .col-sm-5
+            strong Consider LGBTQ identified youth?
+          .col-sm-7= @preference.consider_LGBTQ_youth? ? 'Yes' : 'No'
+          
+          hr
+          .clearfix
+          

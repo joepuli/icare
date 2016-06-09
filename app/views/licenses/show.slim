@@ -1,0 +1,44 @@
+.col-lg-9.animated.fadeInRight
+  .row
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-title 
+          .pull-sm-right
+            = link_to 'edit', edit_profile_license_path(@profile, @license)
+          h5 License
+        .ibox-content
+          .col-sm-7
+            strong Training classes
+          .col-sm-5= @license.training_classes
+          
+          .clearfix
+          hr
+          
+          .col-sm-7
+            strong Been a foster parent?
+          .col-sm-5= @license.been_a_foster_parent? ? 'Yes' : 'No'
+          
+          .clearfix
+          hr
+          
+          .col-sm-7
+            strong Current license
+          .col-sm-5= @license.current_license
+          
+          .clearfix
+          hr
+
+          .col-sm-7
+            strong Completed on
+          .col-sm-5= @license.completed_on.strftime('%m/%d/%Y')
+          
+          .clearfix
+          hr
+
+          .col-sm-7
+            strong Updated on
+          .col-sm-5= @license.updated_on? ? @license.updated_on.strftime('%m/%d/%Y') : ''
+          
+          .clearfix
+          hr
+          

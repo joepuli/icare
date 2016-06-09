@@ -1,48 +1,58 @@
-.row
-  .col-sm-9
-    .pull-sm-right
-      = link_to 'edit', [:edit, @profile, @agency]
-  
-  .col-sm-9
-    .col-sm-3
-      strong Agency name
-    .col-sm-9= @agency.agency_name
-    
-    br
-    
-    .col-sm-3
-      strong Agency phone
-    .col-sm-9= number_to_phone @agency.agency_phone
-    
-    br
-    
-    .col-sm-3
-      strong Agency fax
-    .col-sm-9= number_to_phone @agency.agency_fax
-    
-    br
+.col-lg-9.animated.fadeInRight
+  .row
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-title 
+          .pull-sm-right
+            = link_to 'edit', [:edit, @profile, @agency]
+          h5 Agency
+        .ibox-content
+          .col-sm-3
+            strong Agency name
+          .col-sm-9= @agency.agency_name
+          
+          hr
+          .clearfix
+          
+          .col-sm-3
+            strong Agency phone
+          .col-sm-9= number_to_phone @agency.agency_phone
+          
+          hr
+          .clearfix
+          
+          .col-sm-3
+            strong Agency fax
+          .col-sm-9= number_to_phone @agency.agency_fax
+          
+          hr
+          .clearfix
 
-    .col-sm-3
-      strong Contact person
-    .col-sm-9= @agency.contact_person
-    
-    br
-    
-    .col-sm-3
-      strong Contact person phone
-    .col-sm-9= number_to_phone @agency.contact_person_phone
-    
-    br
-    
-    .col-sm-3
-      strong Contact person email
-    .col-sm-9= @agency.contact_person_email
-    
-    br
-    
-    .col-sm-3
-      strong Agency Address
-    .col-sm-9= @agency.address.try(:full_address)
-    
-    br
-    
+          .col-sm-3
+            strong Contact person
+          .col-sm-9= @agency.contact_person
+          
+          hr
+          .clearfix
+          
+          .col-sm-3
+            strong Contact person phone
+          .col-sm-9= number_to_phone @agency.contact_person_phone
+          
+          hr
+          .clearfix
+          
+          .col-sm-3
+            strong Contact person email
+          .col-sm-9= @agency.contact_person_email
+          
+          hr
+          .clearfix
+          
+          .col-sm-3
+            strong Agency Address
+          .col-sm-9= @agency.address.try(:full_address)
+          
+          hr
+          .clearfix
+          

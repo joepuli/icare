@@ -8,12 +8,13 @@
           - if current_user.profile.try(:persisted?)
             - profile = current_user.profile
             li= link_to 'Basic info', profile_path(current_user.profile)
+            li= link_to 'License', profile.license? ? [profile, profile.license] : edit_profile_license_path(profile, :license)
             li= link_to 'Agency', profile.agency? ? [profile, profile.agency] : [:new, profile, :agency]
             li= link_to 'Home', profile.home? ? [profile, profile.home] : edit_profile_home_path(profile, :home)
             li= link_to 'Parent information', profile.parents? ? [profile, :parents] : edit_profile_parent_path(profile, :parent)
             li= link_to 'Children information', profile.children? ? [profile, :children] : edit_profile_child_path(profile, :child)
-            li= link_to 'Preference', profile.preference.persisted? ? profile.preference : [:new, :preference]
-            - if profile.preference.persisted?
+            li= link_to 'Preference', profile.try(:preference).try(:persisted?) ? profile.preference : [:new, :preference]
+            - if profile.try(:preference).try(:persisted?)
               = render partial: 'shared/preference_menu', locals: { preference: profile.preference }
           - else
             li= link_to 'Basic info', [:new, :profile]

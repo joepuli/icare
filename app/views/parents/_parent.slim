@@ -1,69 +1,75 @@
-.col-sm-9
-  .col-sm-12
-    .pull-sm-right
-      = link_to 'edit', [:edit, @profile, parent]
+.ibox-title 
+  .pull-sm-right
+    = link_to 'edit', [:edit, @profile, parent]
+  h5 Parent's Information
+.ibox-content
+  .col-sm-4
+    strong First name
+  .col-sm-8= parent.first_name
   
-  .col-sm-12
-    .col-sm-4
-      strong First name
-    .col-sm-8= parent.first_name
-    
-    br
-    
-    .col-sm-4
-      strong Middle name
-    .col-sm-8= parent.middle_name
-    
-    br
+  hr
+  .clearfix
   
-    .col-sm-4
-      strong Last name
-    .col-sm-8= parent.last_name
-    
-    br
-    
-    .col-sm-4
-      strong Birthday
-    .col-sm-8= parent.date_of_birth
-    
-    br
-    
-    .col-sm-4
-      strong Religion
-    .col-sm-8= parent.religion
-    
-    br
-    
-    .col-sm-4
-      strong Primary language
-    .col-sm-8= parent.primary_language
-    
-    br
-    
-    .col-sm-4
-      strong Secondary language
-    .col-sm-8= parent.secondary_language
-    
-    br
-    
-    .col-sm-4
-      strong Active or reserve duty military?
-    .col-sm-8= parent.active_or_reserve_duty_military? ? 'Yes' : 'No'
-    
-    br
-    
-    .col-sm-4
-      strong Occupation
-    .col-sm-8= parent.occupation
-    
-    br
-    
-    .col-sm-4
-      strong Relationship status
-    .col-sm-8= parent.relationship_status
-    
-    br
-    
-    .col-sm-4
-      strong Races
-    .col-sm-8= parent.races.pluck(:name).join(', ')
+  .col-sm-4
+    strong Middle name
+  .col-sm-8= parent.middle_name
+  
+  hr
+  .clearfix
+
+  .col-sm-4
+    strong Last name
+  .col-sm-8= parent.last_name
+  
+  hr
+  .clearfix
+  
+  .col-sm-4
+    strong Birthday
+  .col-sm-8= parent.date_of_birth
+  
+  hr
+  .clearfix
+  
+  .col-sm-4
+    strong Religion
+  .col-sm-8= parent.religion
+  
+  hr
+  .clearfix
+  
+  .col-sm-4
+    strong Primary language
+  .col-sm-8= parent.primary_language
+  
+  hr
+  .clearfix
+  
+  .col-sm-4
+    strong Secondary language
+  .col-sm-8= parent.secondary_language
+  
+  hr
+  .clearfix
+  
+  .col-sm-4
+    strong Active or reserve duty military?
+  .col-sm-8= parent.active_or_reserve_duty_military? ? 'Yes' : 'No'
+  
+  hr
+  .clearfix
+  
+  .col-sm-4
+    strong Occupation
+  .col-sm-8= parent.occupation
+  
+  hr
+  .clearfix
+  
+  .col-sm-4
+    strong Relationship status
+  .col-sm-8= parent.relationship_status
+  
+  hr
+  .clearfix
+  

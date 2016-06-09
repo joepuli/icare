@@ -3,7 +3,7 @@ head
   script src="//cdn.rawgit.com/mahnunchik/markerclustererplus/master/dist/markerclusterer.min.js"
   script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js'
 
-.col-sm-9
+.row
   .col-sm-12
     = form_tag [@profile, :agencies], method: :get, id: 'agencies', 
         class: 'form-inline', remote: true  do
@@ -17,7 +17,7 @@ head
                                                  params[:radius]),
                                   prompt: 'select distance in miles',
                                   class: 'form-control c-select'
-  .col-sm-12
+  .col-sm-12.hello-world
     p data-map='' 
       = render partial: 'map', locals: { location: @location, hash: @hash }
     #map

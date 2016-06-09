@@ -1,5 +1,10 @@
-.row
-  .col-sm-9
-    = simple_form_for @preference, url: { controller: 'risks', action: :update }, method: :patch do |f|
-      = f.association :risks, as: :check_boxes
-      = f.submit class: 'btn btn-primary'
+.col-lg-9.animated.fadeInRight
+  .row
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-title 
+          h5 Risks
+        .ibox-content
+          = simple_form_for @preference, url: { controller: 'risks', action: :update }, method: :patch do |f|
+            = f.association :risks, as: :check_boxes
+            = f.submit class: 'btn btn-primary'

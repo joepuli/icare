@@ -1,0 +1,11 @@
+.col-lg-9.animated.fadeInRight
+  .row
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-title 
+          h5 License
+        .ibox-content
+          = simple_form_for @profile, url: { controller: 'licenses', action: :update }, method: :patch do |f|
+            = f.simple_fields_for :license do |builder|
+              = render partial: 'licenses/license_fields', locals: { f: builder }
+            = f.submit class: 'btn btn-primary'

@@ -2,10 +2,6 @@ class HomesController < ApplicationController
   before_action :find_profile, :find_home
   before_action :lookup_home, only: [:edit, :update]
 
-  def index
-    @parents = @profile.parents
-  end
-
   def edit
   end
 
@@ -46,6 +42,5 @@ class HomesController < ApplicationController
       @home = @profile.build_home
       @home.build_address
     end
-
   end
 end

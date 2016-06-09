@@ -1,11 +1,16 @@
-.row
-  .col-sm-9
-    = simple_form_for @profile, url: { controller: 'parents', action: :update }, method: :patch do |f|
-      = f.simple_fields_for :parents do |builder|
-        = render partial: 'parent_fields', locals: { f: builder }
-      = link_to_add_fields "Add parent", f, :parents
-        
-      = f.submit class: 'btn btn-primary'
+.col-lg-9.animated.fadeInRight
+  .row
+    .col-lg-12
+      .ibox.float-e-margins
+        .ibox-title 
+          h5 Parent's Information
+        .ibox-content
+          = simple_form_for @profile, url: { controller: 'parents', action: :update }, method: :patch do |f|
+            = f.simple_fields_for :parents do |builder|
+              = render partial: 'parent_fields', locals: { f: builder }
+            = link_to_add_fields "Add parent", f, :parents
+              
+            = f.submit class: 'btn btn-primary'
           
 coffee:
   @App.DynamicFields.prototype.addFields()

@@ -36,4 +36,19 @@ class User
 
   # associtions
   has_one :profile
+  has_many :sent_messages, class_name: 'Message', inverse_of: :sender
+  has_many :received_messages, class_name: 'Message', inverse_of: :receiver
+  # has_many :folders
+
+  # callbacks
+  # before_create :build_inbox
+
+  # instance methods
+  # def inbox
+  #   folders.find_by(name: 'Inbox')
+  # end
+  #
+  # def build_inbox
+  #   folders.build(name: 'Inbox')
+  # end
 end

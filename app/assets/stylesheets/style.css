@@ -491,7 +491,7 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   margin-bottom: 0;
 }
 .top-navigation .nav > li > a {
-  padding: 15px 20px;
+  padding: 20px;
   color: #676a6c;
 }
 .top-navigation .nav > li a:hover,
@@ -8224,4 +8224,30 @@ body.md-skin {
   #page-wrapper {
     margin: 0;
   }
+}
+hr {
+  border-top: 1px dashed #e7eaec;
+  color: #ffffff;
+  background-color: #ffffff;
+  height: 1px;
+  margin: 20px 0;
+}
+abbr[title] {
+  color: indianred;
+}
+li.active {
+  border-color: #eee;
+}
+li.active:hover {
+  border-color: #bbb;
+}
+div.checkbox .radio label input:only-child, .checkbox label input:only-child {
+  margin-right: 10px;
+}
+div.checkbox span.radio {
+  margin-top: 10px;
+  margin-left: 25px;
+}
+.hello-world {
+  padding: 0px;
 }

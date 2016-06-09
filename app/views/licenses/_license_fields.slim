@@ -1,0 +1,9 @@
+= f.input :training_classes, collection: License::BOOLEAN_OPTIONS
+= f.input :been_a_foster_parent, as: :boolean,
+    wrapper: :horizontal_form
+= f.input :current_license, collection: License::BOOLEAN_OPTIONS,
+    label: 'Do you have a current home study or foster care license in your state of residence?'
+= f.input :completed_on, as: :date, html5: true, order: [:month, :year],
+    wrapper: :horizontal_form
+= f.input :updated_on, as: :date, html5: true, order: [:month, :year],
+    wrapper: :horizontal_form
