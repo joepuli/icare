@@ -37,6 +37,8 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
+    airbrussh (1.0.2)
+      sshkit (>= 1.6.1, != 1.7.0)
     arel (6.0.3)
     autoprefixer-rails (6.3.6.2)
       execjs
@@ -47,6 +49,25 @@ GEM
     bson (4.1.1)
     builder (3.2.2)
     byebug (9.0.5)
+    capistrano (3.5.0)
+      airbrussh (>= 1.0.0)
+      capistrano-harrow
+      i18n
+      rake (>= 10.0.0)
+      sshkit (>= 1.9.0)
+    capistrano-bundler (1.1.4)
+      capistrano (~> 3.1)
+      sshkit (~> 1.2)
+    capistrano-harrow (0.5.1)
+    capistrano-rails (1.1.6)
+      capistrano (~> 3.1)
+      capistrano-bundler (~> 1.1)
+    capistrano-rvm (0.1.2)
+      capistrano (~> 3.0)
+      sshkit (~> 1.2)
+    capistrano3-puma (1.2.1)
+      capistrano (~> 3.0)
+      puma (>= 2.6)
     capybara (2.6.2)
       addressable
       mime-types (>= 1.16)
@@ -126,12 +147,16 @@ GEM
       rspec (~> 3.3)
     multi_json (1.12.1)
     multipart-post (2.0.0)
+    net-scp (1.2.1)
+      net-ssh (>= 2.6.5)
+    net-ssh (3.1.1)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
     octicons-rails (2.1.1)
       railties (>= 3.2, < 5.0)
     origin (2.2.0)
     orm_adapter (0.5.0)
+    puma (3.4.0)
     rack (1.6.4)
     rack-mini-profiler (0.10.1)
       rack (>= 1.2.0)
@@ -216,6 +241,9 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
+    sshkit (1.10.0)
+      net-scp (>= 1.1.2)
+      net-ssh (>= 2.8.0)
     sys-uname (1.0.2)
       ffi (>= 1.0.0)
     temple (0.7.7)
@@ -245,6 +273,11 @@ PLATFORMS
 DEPENDENCIES
   bootstrap (~> 4.0.0.alpha3)
   byebug
+  capistrano
+  capistrano-bundler
+  capistrano-rails
+  capistrano-rvm
+  capistrano3-puma
   capybara (~> 2.6.0)
   capybara-webkit
   coffee-rails (~> 4.1.0)
@@ -262,6 +295,7 @@ DEPENDENCIES
   mongoid (~> 5.1.0)
   mongoid-rspec (= 3.0.0)
   octicons-rails
+  puma
   rack-mini-profiler
   rails (= 4.2.6)
   rails-assets-tether (>= 1.1.0)

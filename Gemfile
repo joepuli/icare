@@ -22,6 +22,7 @@ gem 'gmaps4rails', '~> 2.1.0'
 gem 'underscore-rails', '~> 1.8.0'
 gem 'simple_form', '~> 3.2.1'
 gem 'font-awesome-rails'
+gem 'puma'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
@@ -41,6 +42,11 @@ group :development do
   gem 'web-console', '~> 3.0'
   gem 'spring'
   gem 'rack-mini-profiler'
+  gem 'capistrano',         require: false
+  gem 'capistrano-rvm',     require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
 end
 
 group :test do
