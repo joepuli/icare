@@ -1,0 +1,8 @@
+tr
+  td= link_to conversation_path(conversation), class: 'mail-contact' do
+    | Owner: 
+    = conversation.user.email
+  td= link_to conversation_path(conversation), class: 'mail-subject' do
+    = conversation.subject.truncate(25)
+  td= link_to conversation_path(conversation), class: 'mail-date' do
+              = conversation.created_at

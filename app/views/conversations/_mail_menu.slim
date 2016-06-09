@@ -12,7 +12,7 @@
               | Inbox
               span.label.label-warning.pull-right= current_user.received_messages.size
           li
-            = link_to conversations_path do
+            = link_to sent_conversations_path do
               i.fa.fa-envelope-o
               | Send Mail
         .clearfix

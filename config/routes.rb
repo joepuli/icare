@@ -3,7 +3,11 @@ Rails.application.routes.draw do
                                     sessions: 'users/sessions'
                                   }
 
-  resources :conversations, path: 'inbox'
+  resources :conversations, path: 'inbox' do
+    collection do
+      get 'sent'
+    end
+  end
   resources :agencies, only: :index
   resources :profiles do
     resources :licenses, except: :index

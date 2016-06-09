@@ -39,6 +39,13 @@ class ConversationsController < ApplicationController
     end
   end
 
+  def sent
+    conversation_ids = current_user.sent_messages.pluck(:conversation_id)
+    conversations = Conversation.order(updated_at: :desc).find(conversation_ids)
+    @conversations = Kaminari.paginate_array(conversations).page(params[:page])
+                                                            .per(10)
+  end
+
   private
 
   def conversation_attributes

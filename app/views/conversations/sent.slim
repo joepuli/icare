@@ -1,14 +1,15 @@
+
 .row
   = render 'mail_menu'
   
   .col-lg-9.animated.fadeInRight
     .mail-box-header
-      h2= "Inbox (#{current_user.received_messages.size})"
+      h2= "Sent (#{current_user.sent_messages.size})"
       .mail-tools.tooltip-demo.m-t-md
         .btn-group.pull-right
           i= link_to_previous_page @conversations, '', class: 'fa fa-arrow-left'
           i= link_to_next_page @conversations, '', class: 'fa fa-arrow-right'
-        = link_to [:conversations], class: 'btn btn-white btn-sm' do
+        = link_to [:sent, :conversations], class: 'btn btn-white btn-sm' do
           i.fa.fa-refresh
           | Refresh
     .mail-box
