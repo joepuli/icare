@@ -23,7 +23,7 @@ gem 'underscore-rails', '~> 1.8.0'
 gem 'simple_form', '~> 3.2.1'
 gem 'font-awesome-rails'
 gem 'passenger', '>= 5.0.25', require: 'phusion_passenger/rack_handler'
-gem 'kaminari'
+gem 'kaminari', git: 'git://github.com/amatsuda/kaminari.git', branch: 'master'
 
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
