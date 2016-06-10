@@ -18,23 +18,23 @@ The FPSA is a working application that allows parents of foster kids to establis
 
 Development Approach and Process
 
-This section addresses requirements labeled A � Q in Section 2 Technical Requirements of the RFI.
+This section addresses requirements labeled A - Q in Section 2 Technical Requirements of the RFI.
 a. Assigned a single leader.
 Joe Puli, a Technical Architect and Managing Partner of QualApps, accepted full responsibility for the development of FPSA.  
 
 b. Assemble multidisciplinary and collaborative team
 The team that QualApps assembled is composed of five individuals each of whom served in one or more ADPQ labor categories to design, build, test, and deploy FPSA:
-(For each person, list tasks undertaken that support the role, e.g., Mr. Puli did ABC.)
-1. Joe Puli � Product Manager and Technical Architect.
-2. Manmohit �Money� Atwal �  Front End and Back End Web Developer.  
-3. Jigish Parikh � DevOps Engineer.  
-4. Eric Steen � Interaction Designer / User Researcher / Usability Tester and Business Analyst.  
-5. Suresh Kannan � Delivery Manager.
+
+1. Joe Puli - Product Manager and Technical Architect.
+2. Manmohit Atwal -  Front End and Back End Web Developer.  
+3. Jigish Parikh - DevOps Engineer.  
+4. Eric Steen - Interaction Designer / User Researcher / Usability Tester and Business Analyst.  
+5. Suresh Kannan - Delivery Manager.
 
 c. Understood what people needed
-d. Used �human-centered design�
+d. Used "human-centered design"
 g. Used an iterative approach
-Optimism and Collaboration.  It�s not often that a consulting organization enthusiastically embraces a procurement process.  In this case the team was enthusiastic for a couple of reasons.  We did not have to develop endless documents outlining corporate experience and describing methodologies.  We didn�t spend hours formatting resumes, creating fictitious schedules and project management artifacts.  We didn�t have to develop topology diagrams and fret about material deviations.  Instead, we got to do what we love � working together to solve a problem and build working software.  We cite this because human-centered design, we believe, requires both optimism and collaboration.
+Optimism and Collaboration.  It's not often that a consulting organization enthusiastically embraces a procurement process.  In this case the team was enthusiastic for a couple of reasons.  We did not have to develop endless documents outlining corporate experience and describing methodologies.  We didn't spend hours formatting resumes, creating fictitious schedules and project management artifacts.  We didn't have to develop topology diagrams and fret about material deviations.  Instead, we got to do what we love working together to solve a problem and build working software.  We cite this because human-centered design, we believe, requires both optimism and collaboration.
 
 Inspiration and Ideation. The team started by putting itself in the shoes of foster parents, leveraging the experience of one of the team members who has fostered and adopted multiple children.  
 The team primarily focused on the needs of foster parents, but also considered viewpoints of placement organizations.  The team even considered options for prospective foster families to post online profiles available to agencies, expecting mothers interested in adoption, and foster children.  Although ultimately deemed out-of-scope, the architecture can support such add-ons at a later date.
@@ -48,7 +48,7 @@ e. Used a design style guide and/or a pattern library
 Used bootstrap framework; leveraged existing template that is extensible.
 
 f. Performed usability tests with people  
-Multiple team members put themselves in the shoes of foster parents and tested the application. Immediate feedback was provided to the rest of the team based on what worked, what didn�t, and what might function more effectively.  For example, one issue that emerged was that in some cases queries returned multiple agencies, some of which are closed.  To improve the user experience, we logged an issue to ensure that closed facilities are clearly marked in result sets.
+Multiple team members put themselves in the shoes of foster parents and tested the application. Immediate feedback was provided to the rest of the team based on what worked, what didn't, and what might function more effectively.  For example, one issue that emerged was that in some cases queries returned multiple agencies, some of which are closed.  To improve the user experience, we logged an issue to ensure that closed facilities are clearly marked in result sets.
 
 h. Multiple devices and responsive design
 The solution is responsive and therefore accessible by multiple devices.
@@ -69,7 +69,7 @@ m. Configuration Management (CM)
 The solution relies on GitHub for CM.
 
 n. Continuous monitoring
-Amazon provides a number of monitoring tools.  We selected CloudWatch to monitor Monitor Resources and Applications.  In the interest of time we only setup infrastructure level monitoring � CPU, memory, etc.  We could expand monitoring to be more robust and granular, e.g., nagios, sensu, zabbix.  
+Amazon provides a number of monitoring tools.  We selected CloudWatch to monitor Monitor Resources and Applications.  In the interest of time we only setup infrastructure level monitoring CPU, memory, etc.  We could expand monitoring to be more robust and granular, e.g., nagios, sensu, zabbix.  
 
 o. Container deployment (OS-level virtualization)
 For the solution we established multiple virtual machines.  The NGINX server upon which our RoR application resides is dockerized.
