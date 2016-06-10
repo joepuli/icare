@@ -1,7 +1,7 @@
 # config valid only for current version of Capistrano
 lock '3.5.0'
 
-set :application, 'QualApps AFP Vendor Pool'
+set :application, 'QualApps ADPQ Vendor Pool'
 set :repo_url, 'git@github.com:joepuli/icare.git'
 
 # Default branch is :master
