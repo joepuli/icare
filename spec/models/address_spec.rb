@@ -16,15 +16,10 @@ RSpec.describe Address, type: :model do
   it { is_expected.to have_field(:s).with_alias(:state) }
   it { is_expected.to have_field(:z).with_alias(:zip) }
   it { is_expected.to have_field(:c).with_alias(:country) }
-  it { is_expected.to have_field(:t).with_alias(:type) }
   it { is_expected.to have_field(:co).with_alias(:coordinates).of_type(Array) }
 
   # validations
   it { is_expected.to validate_presence_of(:home_address) }
-  it do
-    is_expected.to validate_inclusion_of(:type)
-      .to_allow(Address::TYPES)
-  end
 
   # instance methods
   let(:address) { build(:address, home_address: 'hello', city: 'world') }

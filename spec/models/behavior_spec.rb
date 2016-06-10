@@ -12,7 +12,7 @@ RSpec.describe Behavior, type: :model do
   # fields
   it do
     is_expected.to have_field(:b)
-      .with_alias(:highest_level_of_behavior_issue_your_family_will_consider?)
+      .with_alias(:highest_level_of_behavior_issue_your_family_will_consider)
   end
 
   # validations

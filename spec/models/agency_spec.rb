@@ -8,7 +8,7 @@ RSpec.describe Agency, type: :model do
   it { is_expected.to be_timestamped_document.with(:updated) }
 
   # associations
-  it { is_expected.to be_embedded_in(:profile) }
+  it { is_expected.to belong_to(:profile) }
   it { is_expected.to embed_one(:address) }
 
   # nested attributes
@@ -26,7 +26,7 @@ RSpec.describe Agency, type: :model do
   # validations
   it { is_expected.to validate_presence_of(:contact_person) }
   it { is_expected.to validate_presence_of(:agency_name) }
-  it { is_expected.to validate_presence_of(:address) }
+  it { is_expected.to validate_associated(:address) }
   it { is_expected.to validate_presence_of(:agency_phone) }
   it { is_expected.to validate_presence_of(:contact_person_phone) }
   it { is_expected.to validate_presence_of(:contact_person_email) }

@@ -1,8 +1,11 @@
 FactoryGirl.define do
   factory :profile do
-    first_name Faker::Name.first_name
-    middle_name ''
-    last_name Faker::Name.last_name
-    born_on 35.years.ago
+    primary_phone Faker::PhoneNumber.phone_number
+    secondary_phone Faker::PhoneNumber.phone_number
+    family_introduction Faker::Lorem.sentence
+    lifestyle_and_interests Faker::Lorem.sentence
+    experience_with_children Faker::Lorem.sentence
+    support_network Faker::Lorem.sentence
+    available_resources Faker::Lorem.sentence
   end
 end

@@ -14,7 +14,8 @@ class Message
   field :b, as: :body, type: String
 
   # validations
-  validates :to_id, :from_id, :body, presence: true
+  validates :body, presence: true, length: { minimum: 1, maximum: 3000 }
+  validates :to, :from, associated: true
 
   # nested attributes
 

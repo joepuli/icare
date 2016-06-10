@@ -12,9 +12,8 @@ RSpec.describe Message, type: :model do
   it { is_expected.to belong_to(:from).of_type(User) }
 
   # validation
-  it { is_expected.to validate_presence_of(:to) }
-  it { is_expected.to validate_presence_of(:from) }
-
-  # nested attributes
-  it { is_expected.to accept_nested_attributes_for(:conversation) }
+  it { is_expected.to validate_associated(:to) }
+  it { is_expected.to validate_associated(:from) }
+  it { is_expected.to validate_presence_of(:body) }
+  it { is_expected.to validate_length_of(:body).within(1..3000) }
 end

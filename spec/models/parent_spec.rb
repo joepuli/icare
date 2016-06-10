@@ -18,7 +18,6 @@ RSpec.describe Parent, type: :model do
       .of_type(Date)
   end
   it { is_expected.to have_field(:g).with_alias(:gender) }
-  it { is_expected.to have_field(:ra).with_alias(:race).of_type(Array) }
   it { is_expected.to have_field(:re).with_alias(:religion) }
   it { is_expected.to have_field(:pl).with_alias(:primary_language) }
   it { is_expected.to have_field(:sl).with_alias(:secondary_language) }
@@ -38,14 +37,10 @@ RSpec.describe Parent, type: :model do
   it do
     is_expected.to validate_inclusion_of(:gender).to_allow(%w(Male Female))
   end
-  it { is_expected.to validate_presence_of(:race) }
-  it do
-    is_expected.to validate_inclusion_of(:race).to_allow(Parent::RACE)
-  end
   it { is_expected.to validate_presence_of(:primary_language) }
   it do
     is_expected.to validate_inclusion_of(:primary_language)
-      .to_allow(Parent::PRIMARY_LANGUAGE)
+      .to_allow(Parent::LANGUAGE)
   end
   it { is_expected.to validate_presence_of(:active_or_reserve_duty_military) }
   it { is_expected.to validate_presence_of(:relationship_status) }

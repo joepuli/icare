@@ -5,4 +5,4 @@ tr
   td= link_to conversation_path(conversation), class: 'mail-subject' do
     = conversation.subject.truncate(25)
   td= link_to conversation_path(conversation), class: 'mail-date' do
-              = conversation.created_at
+              = distance_of_time_in_words_to_now conversation.created_at

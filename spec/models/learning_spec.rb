@@ -14,7 +14,7 @@ RSpec.describe Learning, type: :model do
   # fields
   it do
     is_expected.to have_field(:l)
-      .with_alias(:hightest_level_of_learning_disability_in_a_child_your_family_will_consider?)
+      .with_alias(:hightest_level_of_learning_disability_in_a_child_your_family_will_consider)
   end
 
   # validations

@@ -10,10 +10,10 @@ RSpec.describe Profile, type: :model do
   it { is_expected.to belong_to(:user) }
   it { is_expected.to embed_one(:license) }
   it { is_expected.to embed_one(:home) }
-  it { is_expected.to embed_one(:agency) }
   it { is_expected.to embed_many(:parents) }
   it { is_expected.to embed_many(:children) }
-  it { is_expected.to have_many(:preferences) }
+  it { is_expected.to have_one(:agency) }
+  it { is_expected.to have_one(:preference) }
 
   # nested attributes
   it { is_expected.to accept_nested_attributes_for(:license) }
@@ -36,10 +36,10 @@ RSpec.describe Profile, type: :model do
   it { is_expected.to validate_presence_of(:lifestyle_and_interests) }
   it { is_expected.to validate_presence_of(:experience_with_children) }
   it do
-    is_expected.to validate_length_of(:family_introduction).within(250..3000)
+    is_expected.to validate_length_of(:family_introduction).with_maximum(3000)
   end
   it do
-    is_expected.to validate_length_of(:lifestyle_and_interests).within(250..3000)
+    is_expected.to validate_length_of(:lifestyle_and_interests).with_maximum(3000)
   end
   it do
     is_expected.to validate_length_of(:experience_with_children).with_maximum(3000)

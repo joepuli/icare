@@ -15,7 +15,7 @@ RSpec.describe Preference, type: :model do
   it { is_expected.to embed_one(:development) }
   it { is_expected.to embed_one(:emotion) }
   it { is_expected.to embed_one(:physical) }
-  it { is_expected.to embed_one(:risk) }
+  it { is_expected.to have_many(:risks) }
 
   # fields
   it { is_expected.to have_field(:g).with_alias(:gender) }
@@ -31,11 +31,12 @@ RSpec.describe Preference, type: :model do
       .of_type(Integer)
   end
   it do
-    is_expected.to have_field(:lgbtq).with_alias(:consider_LGBTQ_youth?)
+    is_expected.to have_field(:lgbtq).with_alias(:consider_LGBTQ_youth)
       .of_type(Mongoid::Boolean).with_default_value_of(false)
   end
 
   # validations
+  it { is_expected.to validate_associated(:risks) }
   it { is_expected.to validate_presence_of(:gender) }
   it do
     is_expected.to validate_inclusion_of(:gender)
@@ -62,7 +63,7 @@ RSpec.describe Preference, type: :model do
     is_expected.to validate_inclusion_of(:maximum_number_of_children)
       .to_allow(Preference::QUANTITY)
   end
-  it { is_expected.to validate_presence_of(:consider_LGBTQ_youth?) }
+  it { is_expected.to validate_presence_of(:consider_LGBTQ_youth) }
   it do
     is_expected.to validate_inclusion_of(:racial_composition)
       .to_allow(Preference::COMPOSITION)

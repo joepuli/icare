@@ -27,7 +27,7 @@ class Address
   validates :home_address, :city, :state, :zip, presence: true
 
   # callbacks
-  after_validation :geocode, if: ->(obj) { obj.full_address.present? }
+  after_validation :geocode, if: ->(obj) { obj.city_changed? or obj.home_address_changed? or obj.state_changed? or obj.zip_changed? }
 
   # instance methods
   def full_address

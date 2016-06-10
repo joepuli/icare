@@ -7,17 +7,14 @@ RSpec.describe Risk, type: :model do
   it { is_expected.to be_timestamped_document.with(:updated) }
 
   # associations
-  it { is_expected.to be_embedded_in(:preference) }
+  it { is_expected.to belong_to(:preference) }
 
   # fields
-  it do
-    is_expected.to have_field(:r).with_alias(:risk_factors_your_family_will_consider)
-      .of_type(Array)
-  end
+  it { is_expected.to have_field(:n).with_alias(:name) }
 
   # validations
   it do
-    is_expected.to validate_inclusion_of(:r)
+    is_expected.to validate_inclusion_of(:n)
       .to_allow(Risk::FACTORS)
   end
 end

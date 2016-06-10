@@ -11,7 +11,8 @@ class Conversation
   field :s, as: :subject, type: String
 
   # validations
-  validates :subject, presence: true
+  validates :subject, presence: true,
+                      length: { minimum: 1, maximum: 200 }
   validates :messages, associated: true
 
   # nested attributes

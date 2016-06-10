@@ -12,7 +12,7 @@ RSpec.describe Development, type: :model do
   # fields
   it do
     is_expected.to have_field(:d)
-      .with_alias(:hightest_level_of_development_disability_in_a_child_your_family_will_consider?)
+      .with_alias(:hightest_level_of_development_disability_in_a_child_your_family_will_consider)
   end
 
   # validations
