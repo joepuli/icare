@@ -73,6 +73,7 @@ Amazon provides a number of monitoring tools.  We selected CloudWatch to monitor
 
 o. Container deployment (OS-level virtualization)
 For the solution we established multiple virtual machines.  The NGINX server upon which our RoR application resides is dockerized.
+
 p. Installation instructions
 Installation instructions are located in the github repository here: https://github.com/joepuli/icare/wiki
 
